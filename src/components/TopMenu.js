@@ -35,9 +35,7 @@ class ButtonAppBar extends React.Component {
       <AppBar position="static">
         <Toolbar>
           <TopNav />
-
-
-         
+ 
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Foodi
