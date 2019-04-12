@@ -13,18 +13,17 @@ class ShoppingList extends Component {
       return (
         
         
+        <div>
         
-        <Grid container flexgrow={1} spacing={24}>
-        <Grid item xs={12}>
-        <Grid container direction='row' justify='center' alignItems='flex-start' spacing={16}>
+        <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
 
         <ListView />
         <ListView />
         <ListView />
         <ListView />
         </Grid>
-        </Grid>
-        </Grid>
+        
+        </div>
         
         
         

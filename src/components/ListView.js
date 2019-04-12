@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
 import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import '../css/ListView.css' 
 import { Paper } from 'material-ui';
@@ -106,9 +106,7 @@ class TodoForm extends React.Component {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  componentDidMount() {
-    this.refs.itemName.focus();
-  }
+  
   onSubmit(event) {
     event.preventDefault();
     var newItemName = this.refs.itemName.value;
@@ -121,8 +119,14 @@ class TodoForm extends React.Component {
   render () {
     return (
       <form ref="form" onSubmit={this.onSubmit} className="form-inline">
-        <input type="text" ref="itemName" className="form-control" placeholder="add a new item..."/>
-        <button type="submit" className="btn btn-default">Add</button> 
+        <TextField
+          id="additem"
+          ref="itemName"
+          label="add item.."
+          margin="dense"
+          />
+        
+        <Button type="submit" color="primary">Add</Button> 
       </form>
     );   
   }
@@ -166,8 +170,8 @@ class ListView extends React.Component {
 
     return (
       
-        <Grid item>
-      <Paper className={classes.ListView}>
+        <Grid  item  >
+        <Paper className={classes.ListView}>
         <TodoHeader name={"Stop & Shop"} />
         <ItemView  items={ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
         <TodoForm addItem={this.addItem} />
