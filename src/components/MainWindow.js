@@ -7,21 +7,25 @@ import ShoppingList from './ShoppingList'
 
 class MainWindow extends Component {
     render() {
+
+      
+
       return (
         
+        
+          
         <div className="MainWindow">
         <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/ShoppingList' component={ShoppingList}/>
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
+        <Route path={process.env.PUBLIC_URL + '/ShoppingList'} component={ShoppingList}/>
         </Switch>
         
        
         </div>
+        
       );
     };
 
   }
   
   export default (MainWindow);
-
-
