@@ -13,9 +13,11 @@ import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 
 
+
 const styles = theme => ({
-  root: {
+  TopNav: {
     display: 'flex',
+    
   },
   paper: {
     marginRight: theme.spacing.unit * 2,
@@ -44,7 +46,7 @@ class TopMenu extends React.Component {
     const { open } = this.state;
 
     return (
-      <div className={classes.root}>
+      <div className={classes.TopNav}>
         <div>
 
         <IconButton 

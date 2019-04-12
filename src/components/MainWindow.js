@@ -4,6 +4,7 @@ import Home from './Home'
 import ShoppingList from './ShoppingList'
 
 
+
 class MainWindow extends Component {
     render() {
       return (
@@ -21,6 +22,6 @@ class MainWindow extends Component {
 
   }
   
-  export default MainWindow;
+  export default (MainWindow);
 
 

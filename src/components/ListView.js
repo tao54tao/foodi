@@ -9,9 +9,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
 import { Button } from '@material-ui/core';
+import '../css/ListView.css' 
 
 const styles = theme => ({
-  root: {
+  ListView: {
     width: '100%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
@@ -27,11 +28,10 @@ ItemList.push({index: 3, name: "wheat bread", category: "general", quantity: 1, 
 
 class ItemView extends React.Component {
   render () {
-    const { classes } = this.props;
 
     var items = this.props.items.map((item, index) => {
       return (
-        <TodoListItem key={index} item={item} index={index} removeItem={this.props.removeItem} markTodoDone={this.props.markTodoDone} />
+        <TodoListItem key={index} item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
       );
     });
     return (
@@ -57,26 +57,27 @@ class TodoListItem extends React.Component {
   }
   onClickDone() {
     var index = parseInt(this.props.index);
-    this.props.markTodoDone(index);
+    this.props.markItemDone(index);
   }
   render () {
     var todoClass = this.props.item.done ? 
         "done" : "undone";
     return(
-
+        <div className={todoClass}>
         <ListItem >
         <ListItemText primary={this.props.item.name} />
         <Button onClick={this.onClickDone} >
-        <i class="material-icons" >
+        <i className="material-icons" >
         check
         </i>
         </Button>
         <Button onClick={this.onClickClose} >
-        <i class="material-icons" >
+        <i className="material-icons" >
         delete
         </i>
         </Button>
         </ListItem>
+        </div>
 
       /* <li className="list-group-item ">
         <div className={todoClass}>
@@ -127,7 +128,7 @@ class ListView extends React.Component {
     super(props);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
-    this.markTodoDone = this.markTodoDone.bind(this);
+    this.markItemDone = this.markItemDone.bind(this);
     this.state = {ItemList: ItemList};
   }
   addItem(todoItem) {
@@ -142,7 +143,7 @@ class ListView extends React.Component {
     ItemList.splice(itemIndex, 1);
     this.setState({ItemList: ItemList});
   }
-  markTodoDone(itemIndex) {
+  markItemDone(itemIndex) {
     var todo = ItemList[itemIndex];
     ItemList.splice(itemIndex, 1);
     todo.done = !todo.done;
@@ -150,14 +151,17 @@ class ListView extends React.Component {
     this.setState({ItemList: ItemList});  
   }
   render() {
+    const { classes } = this.props;
+
     return (
-      <div id="main">
+      <div className={classes.ListView}>
         <TodoHeader name={"Stop & Shop"} />
-        <ItemView  items={ItemList} removeItem={this.removeItem} markTodoDone={this.markTodoDone}/>
+        <ItemView  items={ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
         <TodoForm addItem={this.addItem} />
       </div>
     );
   }
 }
+
 
 export default withStyles(styles)(ListView);

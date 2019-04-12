@@ -9,12 +9,13 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
+import { red } from '@material-ui/core/colors';
 
 
 
 
-const styles = {
-  root: {
+const styles = theme => ({
+  topMenu: {
     flexGrow: 1,
   },
   grow: {
@@ -24,21 +25,19 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-};
+});
 
-function ButtonAppBar(props) {
-  const { classes } = props;
+class ButtonAppBar extends React.Component {
+  render() {
+    const { classes } = this.props;
   return (
-    <div className={classes.root}>
+    <div className={classes.topMenu}>
       <AppBar position="static">
         <Toolbar>
           <TopNav />
 
 
-          {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-            
-          </IconButton> */}
+         
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Foodi
@@ -49,7 +48,33 @@ function ButtonAppBar(props) {
       </AppBar>
     </div>
   );
+
+  }
+
 }
+
+/* 
+function ButtonAppBar(props) {
+  const { classes } = this.props;
+  return (
+    <div className={classes.topMenu}>
+      <AppBar position="static">
+        <Toolbar>
+          <TopNav />
+
+
+         
+
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            Foodi
+          </Typography>
+          
+          <Button color="inherit"><AddIcon /></Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+} */
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
