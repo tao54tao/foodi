@@ -3,17 +3,20 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import '../css/App.css';
 import TopMenu from './TopMenu';
 import MainWindow from './MainWindow';
+import { MuiThemeProvider } from 'material-ui/styles';
+import { getMuiTheme } from 'material-ui/styles';
 
 
 class App extends Component {
   render() {
     return (
-      
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
       <div className="App">
       <CssBaseline />
       <TopMenu />
       <MainWindow />
       </div>
+      </MuiThemeProvider>
       
     );
   }

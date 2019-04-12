@@ -18,6 +18,7 @@ class MainWindow extends Component {
         <Switch>
         <Route exact path='/' component={Home}/>
         <Route path='/ShoppingList' component={ShoppingList}/>
+        <Route component={() => (<div>404 Not found </div>)}/>
         </Switch>
         
        

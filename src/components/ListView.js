@@ -8,15 +8,25 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
+import Grid from '@material-ui/core/Grid';
 import { Button } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 import '../css/ListView.css' 
+import { Paper } from 'material-ui';
 
 const styles = theme => ({
   ListView: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: 500,
+    minWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    
+    
   },
+
+ 
 });
 
 
@@ -62,9 +72,10 @@ class TodoListItem extends React.Component {
   render () {
     var todoClass = this.props.item.done ? 
         "done" : "undone";
+        
     return(
         <div className={todoClass}>
-        <ListItem >
+        <ListItem>
         <ListItemText primary={this.props.item.name} />
         <Button onClick={this.onClickDone} >
         <i className="material-icons" >
@@ -119,7 +130,7 @@ class TodoForm extends React.Component {
   
 class TodoHeader extends React.Component {
   render () {
-    return <h3>{this.props.name}</h3>;
+    return <Typography variant="h6" >{this.props.name}</Typography>;
   }
 }
   
@@ -154,14 +165,23 @@ class ListView extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.ListView}>
+      
+        <Grid item>
+      <Paper className={classes.ListView}>
         <TodoHeader name={"Stop & Shop"} />
         <ItemView  items={ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
         <TodoForm addItem={this.addItem} />
-      </div>
+        </Paper>
+        </Grid>
+      
+     
     );
   }
 }
+
+ListView.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
 
 export default withStyles(styles)(ListView);
