@@ -109,7 +109,8 @@ class TodoForm extends React.Component {
   
   onSubmit(event) {
     event.preventDefault();
-    var newItemName = this.refs.itemName.value;
+    console.log(this.refs.itemName.input.value);
+    var newItemName = this.refs.itemName.input.value;
     
     if(newItemName) {
       this.props.addItem({newItemName});
@@ -118,13 +119,18 @@ class TodoForm extends React.Component {
   }
   render () {
     return (
-      <form ref="form" onSubmit={this.onSubmit} className="form-inline">
-        <TextField
-          id="additem"
-          ref="itemName"
-          label="add item.."
-          margin="dense"
-          />
+      <form 
+        ref="form" 
+        onSubmit={this.onSubmit} 
+        className="form-inline" 
+        state={this.state} 
+        onChange={changes => this.setState(changes)}>
+            <TextField
+            id="additem"
+            ref="itemName"
+            label="add item.."
+            margin="dense"
+            />
         
         <Button type="submit" color="primary">Add</Button> 
       </form>
