@@ -30,11 +30,7 @@ const styles = theme => ({
 });
 
 
-var ListName = "Stop & Shop";
-var ItemList = [];
-ItemList.push({index: 1, name: "milk", category: "dairy", quantity: 1, type: "gal", done: false});
-ItemList.push({index: 2, name: "cheese", category: "dairy", quantity: 2, type: "cup", done: true});
-ItemList.push({index: 3, name: "wheat bread", category: "general", quantity: 1, type: "whole", done: true});
+
 
 class ItemView extends React.Component {
   render () {
@@ -49,7 +45,6 @@ class ItemView extends React.Component {
       {items}
       </List>
 
-      /* <ul className="list-group"> {items} </ul> */
 
     );
   }
@@ -110,8 +105,6 @@ class AddItemForm extends React.Component {
 
   }
 
-  
-
   handleTextFieldChange(event) {
     this.setState({
         textFieldValue: event.target.value
@@ -160,36 +153,37 @@ class ListView extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.markItemDone = this.markItemDone.bind(this);
-    this.state = {ItemList: ItemList};
+    
   }
   addItem(todoItem) {
-    ItemList.unshift({
-      index: ItemList.length+1, 
+    this.props.ItemList.unshift({
+      index: this.props.ItemList.length+1, 
       name: todoItem.newItemName, 
       done: false
     });
-    this.setState({ItemList: ItemList});
+    this.setState({ItemList: this.props.ItemList});
   }
   removeItem (itemIndex) {
-    ItemList.splice(itemIndex, 1);
-    this.setState({ItemList: ItemList});
+    this.props.ItemList.splice(itemIndex, 1);
+    this.setState({ItemList: this.props.ItemList});
   }
   markItemDone(itemIndex) {
-    var item = ItemList[itemIndex];
-    ItemList.splice(itemIndex, 1);
+    var item = this.props.ItemList[itemIndex];
+    this.props.ItemList.splice(itemIndex, 1);
     item.done = !item.done;
-    item.done ? ItemList.push(item) : ItemList.unshift(item);
-    this.setState({ItemList: ItemList});  
+    item.done ? this.props.ItemList.push(item) : this.props.ItemList.unshift(item);
+    this.setState({ItemList: this.props.ItemList});  
   }
   render() {
     const { classes } = this.props;
+     
 
     return (
       
         <Grid  item  >
         <Paper className={classes.ListView}>
-        <ListHeader name={ListName} />
-        <ItemView  items={ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
+        <ListHeader name={this.props.ListName} />
+        <ItemView items={this.props.ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
         <AddItemForm addItem={this.addItem} />
         </Paper>
         </Grid>
