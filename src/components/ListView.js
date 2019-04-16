@@ -30,7 +30,7 @@ const styles = theme => ({
 });
 
 
-
+var ListName = "Stop & Shop";
 var ItemList = [];
 ItemList.push({index: 1, name: "milk", category: "dairy", quantity: 1, type: "gal", done: false});
 ItemList.push({index: 2, name: "cheese", category: "dairy", quantity: 2, type: "cup", done: true});
@@ -41,7 +41,7 @@ class ItemView extends React.Component {
 
     var items = this.props.items.map((item, index) => {
       return (
-        <TodoListItem key={index} item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
+        <ShoppingItem key={index} item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
       );
     });
     return (
@@ -55,7 +55,7 @@ class ItemView extends React.Component {
   }
 }
   
-class TodoListItem extends React.Component {
+class ShoppingItem extends React.Component {
   constructor(props) {
     super(props);
     this.onClickClose = this.onClickClose.bind(this);
@@ -70,11 +70,11 @@ class TodoListItem extends React.Component {
     this.props.markItemDone(index);
   }
   render () {
-    var todoClass = this.props.item.done ? 
+    var DoneClass = this.props.item.done ? 
         "done" : "undone";
         
     return(
-        <div className={todoClass}>
+        <div className={DoneClass}>
         <ListItem>
         <ListItemText primary={this.props.item.name} />
         <Button onClick={this.onClickDone} >
@@ -101,7 +101,7 @@ class TodoListItem extends React.Component {
   }
 }
 
-class TodoForm extends React.Component {
+class AddItemForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {textFieldValue: ''};
@@ -148,7 +148,7 @@ class TodoForm extends React.Component {
   }
 }
   
-class TodoHeader extends React.Component {
+class ListHeader extends React.Component {
   render () {
     return <Typography variant="h6" >{this.props.name}</Typography>;
   }
@@ -175,10 +175,10 @@ class ListView extends React.Component {
     this.setState({ItemList: ItemList});
   }
   markItemDone(itemIndex) {
-    var todo = ItemList[itemIndex];
+    var item = ItemList[itemIndex];
     ItemList.splice(itemIndex, 1);
-    todo.done = !todo.done;
-    todo.done ? ItemList.push(todo) : ItemList.unshift(todo);
+    item.done = !item.done;
+    item.done ? ItemList.push(item) : ItemList.unshift(item);
     this.setState({ItemList: ItemList});  
   }
   render() {
@@ -188,9 +188,9 @@ class ListView extends React.Component {
       
         <Grid  item  >
         <Paper className={classes.ListView}>
-        <TodoHeader name={"Stop & Shop"} />
+        <ListHeader name={ListName} />
         <ItemView  items={ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
-        <TodoForm addItem={this.addItem} />
+        <AddItemForm addItem={this.addItem} />
         </Paper>
         </Grid>
       
