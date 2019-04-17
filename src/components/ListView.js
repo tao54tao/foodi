@@ -13,6 +13,8 @@ import { Button, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import '../css/ListView.css' 
 import { Paper } from 'material-ui';
+import AddItemForm from './AddItemForm';
+import ItemView from './ItemView';
 
 const styles = theme => ({
   ListView: {
@@ -30,110 +32,6 @@ const styles = theme => ({
 });
 
 
-
-
-class ItemView extends React.Component {
-  render () {
-
-    var items = this.props.items.map((item, index) => {
-      return (
-        <ShoppingItem key={index} item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
-      );
-    });
-    return (
-      <List >
-      {items}
-      </List>
-
-
-    );
-  }
-}
-  
-class ShoppingItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onClickClose = this.onClickClose.bind(this);
-    this.onClickDone = this.onClickDone.bind(this);
-  }
-  onClickClose() {
-    var index = parseInt(this.props.index);
-    this.props.removeItem(index);
-  }
-  onClickDone() {
-    var index = parseInt(this.props.index);
-    this.props.markItemDone(index);
-  }
-  render () {
-    var DoneClass = this.props.item.done ? 
-        "done" : "undone";
-        
-    return(
-        <div className={DoneClass}>
-        <ListItem>
-        <ListItemText primary={this.props.item.name} />
-        <Button onClick={this.onClickDone} >
-        <i className="material-icons" >
-        check
-        </i>
-        </Button>
-        <Button onClick={this.onClickClose} >
-        <i className="material-icons" >
-        delete
-        </i>
-        </Button>
-        </ListItem>
-        </div>
-
-
-    );
-  }
-}
-
-class AddItemForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {textFieldValue: ''};
-    this.onSubmit = this.onSubmit.bind(this);
-    this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
-
-  }
-
-  handleTextFieldChange(event) {
-    this.setState({
-        textFieldValue: event.target.value
-    });
-  }
-  
-  onSubmit(event) {
-    event.preventDefault();
-    var newItemName = this.state.textFieldValue;
-    
-    if(newItemName) {
-      this.props.addItem({newItemName});
-      this.refs.form.reset();
-      this.setState({
-        textFieldValue: ''
-      });
-    }
-  }
-  render () {
-    return (
-      <form ref="form" onSubmit={this.onSubmit} className="form-inline" >
-            <TextField
-            id="additem"
-            ref="itemName"
-            label="add item.."
-            margin="dense"
-            value={this.state.textFieldValue} 
-            onChange={this.handleTextFieldChange}
-            />
-        
-        <Button type="submit" color="primary">Add</Button> 
-      </form>
-    );   
-  }
-}
   
 class ListHeader extends React.Component {
   render () {
@@ -147,6 +45,7 @@ class ListView extends React.Component {
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.markItemDone = this.markItemDone.bind(this);
+    this.state={ItemList: this.props.ItemList};
     
   }
   addItem(todoItem) {

@@ -4,7 +4,6 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 
-
 class ShoppingList extends Component {
   constructor(props) {
     super(props);
@@ -19,12 +18,8 @@ class ShoppingList extends Component {
   }
 
 
-
   fetchData = () => {
     this.setState({...this.state, isFetching: true})
-
-
-
 
 
     { // this is where fetch command would run 
@@ -66,25 +61,17 @@ class ShoppingList extends Component {
     ListGroup.push(new ListData(ListName2, ItemList2));
     ListGroup.push(new ListData(ListName1, ItemList1));
     ListGroup.push(new ListData(ListName2, ItemList2));
-    
+
     this.setState({listgroup: ListGroup,
                     isFetching: false});
 
     }
 
     
-
-
     render() {
 
-
-
-
-
-
-
-    var ListGroupView = this.state.listgroup.map(list => {
-      return ( <ListView ListName={list.ListName} ItemList={list.ItemList} />
+    var ListGroupView = this.state.listgroup.map((list, index) => {
+      return ( <ListView key={index} ListName={list.ListName} ItemList={list.ItemList} />
         );
     });
 
