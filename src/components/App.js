@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import '../css/App.css';
 import TopMenuBar from './TopMenuBar';
 import MainWindow from './MainWindow';
 import { MuiThemeProvider } from 'material-ui/styles';

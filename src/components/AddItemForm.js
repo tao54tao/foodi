@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, ListItemText } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import { List, ListItem } from 'material-ui';
 
 
 class AddItemForm extends React.Component {
@@ -31,18 +33,33 @@ class AddItemForm extends React.Component {
     }
     render () {
       return (
-        <form ref="form" onSubmit={this.onSubmit} className="form-inline" >
-              <TextField
-              id="additem"
-              ref="itemName"
-              label="add item.."
-              margin="dense"
-              value={this.state.textFieldValue} 
-              onChange={this.handleTextFieldChange}
-              />
-          
-          <Button type="submit" color="primary">Add</Button> 
+        <Grid item>
+        
+          <form ref="form" onSubmit={this.onSubmit} className="form-inline" >
+        
+        
+          <TextField
+        id="additem"
+        ref="itemName"
+        label="add item.."
+        margin="dense"
+        value={this.state.textFieldValue} 
+        onChange={this.handleTextFieldChange}
+        />
+        
+  
+  
+        <Button type="submit" color="primary">Add</Button>
+        
         </form>
+
+
+        
+        
+        
+        
+        
+        </Grid>
       );   
     }
   }

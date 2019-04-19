@@ -38,7 +38,7 @@ class TopMenuBar extends React.Component {
           <TopNav />
  
 
-          <Typography variant="h6" color="inherit" className={classes.grow}>
+          <Typography variant="h6" color="inherit" ml={100} className={classes.grow}>
           <Switch>
             <Route path='/ShoppingList' exact render={() => (<div>Foodi - Shopping Lists</div>)} />
             <Route path='/' render={() => (<div>Foodi</div>)} />

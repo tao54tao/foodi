@@ -34,8 +34,10 @@ const styles = theme => ({
 
   
 class ListHeader extends React.Component {
+
   render () {
-    return <Typography variant="h6" >{this.props.name}</Typography>;
+
+        return <Grid item><Typography variant="h6" align="center">{this.props.name}</Typography></Grid>;
   }
 }
   
@@ -75,9 +77,11 @@ class ListView extends React.Component {
       
         <Grid  item  >
         <Paper className={classes.ListView}>
+        <Grid container direction="column" justify="flex-start">
         <ListHeader name={this.props.ListName} />
         <ItemView items={this.props.ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
         <AddItemForm addItem={this.addItem} />
+        </Grid>
         </Paper>
         </Grid>
       
