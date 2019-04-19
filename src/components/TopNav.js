@@ -24,7 +24,7 @@ const styles = theme => ({
   },
 });
 
-class TopMenu extends React.Component {
+class TopNav extends React.Component {
   state = {
     open: false,
   };
@@ -101,8 +101,8 @@ class TopMenu extends React.Component {
   }
 }
 
-TopMenu.propTypes = {
+TopNav.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TopMenu);
+export default withStyles(styles)(TopNav);

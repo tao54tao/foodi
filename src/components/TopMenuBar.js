@@ -27,7 +27,7 @@ const styles = theme => ({
   },
 });
 
-class ButtonAppBar extends React.Component {
+class TopMenuBar extends React.Component {
   render() {
     const { classes } = this.props;
   return (
@@ -51,31 +51,10 @@ class ButtonAppBar extends React.Component {
 
 }
 
-/* 
-function ButtonAppBar(props) {
-  const { classes } = this.props;
-  return (
-    <div className={classes.topMenu}>
-      <AppBar position="static">
-        <Toolbar>
-          <TopNav />
 
 
-         
-
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            Foodi
-          </Typography>
-          
-          <Button color="inherit"><AddIcon /></Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-} */
-
-ButtonAppBar.propTypes = {
+TopMenuBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(TopMenuBar);
