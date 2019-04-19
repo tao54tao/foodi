@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
+import { Switch, Route } from 'react-router-dom'
 
 
 
@@ -38,10 +39,13 @@ class TopMenuBar extends React.Component {
  
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Foodi
+          <Switch>
+            <Route path='/ShoppingList' exact render={() => (<div>Foodi - Shopping Lists</div>)} />
+            <Route path='/' render={() => (<div>Foodi</div>)} />
+          </Switch>
           </Typography>
           
-          <Button color="inherit"><AddIcon /></Button>
+          {/* <Button color="inherit"><AddIcon /></Button> */}
         </Toolbar>
       </AppBar>
     </div>
