@@ -1,13 +1,13 @@
 {
-  "main.css": "/foodi/static/css/main.94a78580.chunk.css",
-  "main.js": "/foodi/static/js/main.498f1ff2.chunk.js",
-  "main.js.map": "/foodi/static/js/main.498f1ff2.chunk.js.map",
+  "main.css": "/foodi/static/css/main.6267fb87.chunk.css",
+  "main.js": "/foodi/static/js/main.c5f9454f.chunk.js",
+  "main.js.map": "/foodi/static/js/main.c5f9454f.chunk.js.map",
   "runtime~main.js": "/foodi/static/js/runtime~main.a24f2772.js",
   "runtime~main.js.map": "/foodi/static/js/runtime~main.a24f2772.js.map",
-  "static/js/2.469f863c.chunk.js": "/foodi/static/js/2.469f863c.chunk.js",
-  "static/js/2.469f863c.chunk.js.map": "/foodi/static/js/2.469f863c.chunk.js.map",
+  "static/js/2.c21244ca.chunk.js": "/foodi/static/js/2.c21244ca.chunk.js",
+  "static/js/2.c21244ca.chunk.js.map": "/foodi/static/js/2.c21244ca.chunk.js.map",
   "index.html": "/foodi/index.html",
-  "precache-manifest.7b3a90efbff965ad56d868620585b695.js": "/foodi/precache-manifest.7b3a90efbff965ad56d868620585b695.js",
+  "precache-manifest.2cabd472179e01aa365ad8bd2d1e8c21.js": "/foodi/precache-manifest.2cabd472179e01aa365ad8bd2d1e8c21.js",
   "service-worker.js": "/foodi/service-worker.js",
-  "static/css/main.94a78580.chunk.css.map": "/foodi/static/css/main.94a78580.chunk.css.map"
+  "static/css/main.6267fb87.chunk.css.map": "/foodi/static/css/main.6267fb87.chunk.css.map"
 }
