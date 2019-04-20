@@ -1,6 +1,6 @@
 # Project Web App with React
 
-This is a project made for BU MET Web Application Development. <br>
+This is a project made for BU MET CS 601 - Web Application Development. <br>
 use `npm install` in the project directory to install required dependencies <br>
 use `npm start` in the project directory to run locally at http://localhost:3000 <br>
 page is also published at [https://tao54tao.github.io/foodi](https://tao54tao.github.io/foodi)
@@ -17,13 +17,13 @@ push to github with `git push origin master`<br>
 
 ### How to publish new bulid Github Pages
 
-npm run deploy<br>
+'npm run deploy'<br>
 This will create an optimized production build and deploy to the github pages server.  It will also push to github under the gh-pages branch.
 
 
 ### How to clone from github to new development machine
 
-git clone -b master --single-branch https://github.com/tao54tao/foodi.git foodi <br>
+'git clone -b master --single-branch https://github.com/tao54tao/foodi.git foodi'
 
 # Default Readme:
 
