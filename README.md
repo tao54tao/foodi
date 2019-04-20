@@ -1,8 +1,8 @@
 # Project Web App with React
 
 This is a project made for BU MET Web Application Development. <br>
-use 'npm install' in the project directory to install required dependencies <br>
-use 'npm start' in the project directory to run locally at http://localhost:3000 <br>
+use `npm install` in the project directory to install required dependencies <br>
+use `npm start` in the project directory to run locally at http://localhost:3000 <br>
 page is also published at [https://tao54tao.github.io/foodi](https://tao54tao.github.io/foodi)
 
 
@@ -10,9 +10,9 @@ page is also published at [https://tao54tao.github.io/foodi](https://tao54tao.gi
 
 ### How to push to Github
 
-add all changed files with 'git add . ' <br>
-enter a comment with 'git commit -m "comment here" '<br>
-push to github with 'git push origin master'<br>
+add all changed files with `git add . ` <br>
+enter a comment with `git commit -m "comment here" `<br>
+push to github with `git push origin master`<br>
 
 
 ### How to publish new bulid Github Pages
