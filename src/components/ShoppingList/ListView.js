@@ -11,7 +11,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Grid from '@material-ui/core/Grid';
 import { Button, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import '../css/ListView.css' 
+import './ListView.css' 
 import { Paper } from 'material-ui';
 import AddItemForm from './AddItemForm';
 import ItemView from './ItemView';
