@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Button, TextField } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
 
 class ShoppingItem extends React.Component {
     constructor(props) {
@@ -29,16 +30,16 @@ class ShoppingItem extends React.Component {
           <div className={DoneClass}>
           <ListItem>
           <ListItemText primary={this.props.item.name} />
-          <Button onClick={this.onClickDone} >
+          <IconButton onClick={this.onClickDone} >
           <i className="material-icons" >
           check
           </i>
-          </Button>
-          <Button onClick={this.onClickClose} >
+          </IconButton>
+          <IconButton onClick={this.onClickClose} >
           <i className="material-icons" >
           delete
           </i>
-          </Button>
+          </IconButton>
           </ListItem>
           </div>
   
