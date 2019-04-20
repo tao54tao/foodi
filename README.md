@@ -1,3 +1,32 @@
+# Project Web App with React
+
+This is a project made for BU MET Web Application Development. <br>
+use 'npm install' in the project directory to install required dependencies <br>
+use 'npm start' in the project directory to run locally at http://localhost:3000 <br>
+page is also published at [https://tao54tao.github.io/foodi](https://tao54tao.github.io/foodi)
+
+
+## Dev Notes
+
+### How to push to Github
+
+add all changed files with 'git add . ' <br>
+enter a comment with 'git commit -m "comment here" '<br>
+push to github with 'git push origin master'<br>
+
+
+### How to publish new bulid Github Pages
+
+npm run deploy<br>
+This will create an optimized production build and deploy to the github pages server.  It will also push to github under the gh-pages branch.
+
+
+### How to clone from github to new development machine
+
+git clone -b master --single-branch https://github.com/tao54tao/foodi.git foodi <br>
+
+# Default Readme:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -11,6 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
 
 ### `npm test`
 
