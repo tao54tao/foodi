@@ -29,6 +29,9 @@ const styles = theme => ({
 });
 
 class TopMenuBar extends React.Component {
+  constructor (props) {
+    super(props);
+  }
   render() {
     const { classes } = this.props;
   return (
@@ -39,10 +42,7 @@ class TopMenuBar extends React.Component {
  
 
           <Typography variant="h6" color="inherit" ml={100} className={classes.grow}>
-          <Switch>
-            <Route path='/ShoppingList' exact render={() => (<div>Foodi - Shopping Lists</div>)} />
-            <Route path='/' render={() => (<div>Foodi</div>)} />
-          </Switch>
+          {this.props.title}
           </Typography>
           
           {/* <Button color="inherit"><AddIcon /></Button> */}

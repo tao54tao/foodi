@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ListView from './ListView';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import TopMenuBar from '../TopMenuBar/TopMenuBar';
+import './ShoppingList.css';
 
 
 class ShoppingList extends Component {
@@ -80,14 +82,16 @@ class ShoppingList extends Component {
         
         
         <div>
-        
+        <TopMenuBar title="Foodi - Shopping Lists" />
+        <div className="MainWindow">
         <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
 
         {ListGroupView}
         
         </Grid>
-        
         </div>
+        </div>
+        
         
         
         

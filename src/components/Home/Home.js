@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import TopMenuBar from '../TopMenuBar/TopMenuBar';
+import Typography from 'material-ui/styles/typography';
+import { Paper } from 'material-ui';
 
 class Home extends Component {
     render() {
       return (
-        
         <div>
-        <h2>Home Page</h2>
-        <p>Test area for the home page</p>
+        <TopMenuBar title="Foodi" />
+        <Paper>
+          <p>Test Home Page paper</p>
+        </Paper>
+             
         </div>
-        
+                
       );
     }
   }
