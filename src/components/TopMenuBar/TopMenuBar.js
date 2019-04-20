@@ -21,6 +21,7 @@ const styles = theme => ({
   },
   grow: {
     flexGrow: 1,
+    textAlign: "center",
   },
   menuButton: {
     marginLeft: -12,
@@ -45,7 +46,7 @@ class TopMenuBar extends React.Component {
           {this.props.title}
           </Typography>
           
-          {/* <Button color="inherit"><AddIcon /></Button> */}
+          <Button color="inherit"><AddIcon /></Button>
         </Toolbar>
       </AppBar>
     </div>
