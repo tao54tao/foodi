@@ -17,13 +17,13 @@ push to github with `git push origin master`<br>
 
 ### How to publish new bulid Github Pages
 
-'npm run deploy'<br>
+`npm run deploy`<br>
 This will create an optimized production build and deploy to the github pages server.  It will also push to github under the gh-pages branch.
 
 
 ### How to clone from github to new development machine
 
-'git clone -b master --single-branch https://github.com/tao54tao/foodi.git foodi'
+`git clone -b master --single-branch https://github.com/tao54tao/foodi.git foodi`
 
 # Default Readme:
 
