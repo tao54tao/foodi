@@ -19,12 +19,37 @@ class ShoppingList extends Component {
     this.fetchData()
   }
 
+  // function to make new list in component state.  takes in ListName and ItemList array as arguments
   addList = (ListName="Shopping List", ItemList=[]) => {
     var listGroup = this.state.listGroup;
     listGroup.push({ListName, ItemList});
     this.setState({listGroup: listGroup});      
     
   }
+
+  // function to remove list.  takes in listkey as argument. 
+  // not tested or implemented
+
+  removeList = (ListKey) => {
+    var listGroup = this.state.listGroup;
+    listGroup.splice(ListKey, 1);
+    this.setState({listGroup: listGroup});
+  }
+
+  // function to remove item from specified list in state.  takes in ListKey and ItemKey as arguments
+  // not tested yet or implemented
+  removeItem = (ListKey, ItemKey) => {
+
+    var listGroup = this.state.listGroup;
+    var List = this.state.listGroup[ListKey].ItemList;
+    List.splice(ItemKey, 1);
+    listGroup[ListKey].ItemList = List; 
+    this.setState({listGroup: listGroup});
+  }
+
+
+    
+  
 
 
   fetchData = () => {
