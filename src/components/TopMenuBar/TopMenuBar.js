@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
 
 
@@ -27,26 +27,44 @@ const styles = theme => ({
     marginLeft: -12,
     marginRight: 20,
   },
+  hide: {
+    display: 'none',
+  }
 });
 
 class TopMenuBar extends React.Component {
   constructor (props) {
     super(props);
   }
+
+  handleClick = () => {
+    // set the addButton prop to handleClick function only if the prop was passed to TopMenuBar component
+    if (this.props.addButton) {
+      this.props.addButton();
+
+    }
+    
+  }
+  
   render() {
     const { classes } = this.props;
+
+    // If the addButton prob exists, then set the ButtonExist to to have the show class
+    // If it does not exist, set to hide
+
+    var ButtonExist = this.props.addButton ? 
+    classes.show : classes.hide;
+
+
   return (
     <div className={classes.topMenu}>
       <AppBar position="static">
         <Toolbar>
           <TopNav />
- 
-
           <Typography variant="h6" color="inherit" ml={100} className={classes.grow}>
           {this.props.title}
           </Typography>
-          
-          <Button color="inherit"><AddIcon /></Button>
+          <Button color="inherit" onClick={this.handleClick} className={ButtonExist}><AddIcon /></Button>
         </Toolbar>
       </AppBar>
     </div>

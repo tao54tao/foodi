@@ -11,12 +11,19 @@ class ShoppingList extends Component {
     super(props);
     this.state = {
       isFetching: false,
-      listgroup: [],
+      listGroup: [],
     };
   }
 
   componentDidMount() {
     this.fetchData()
+  }
+
+  addList = (ListName="Shopping List", ItemList=[]) => {
+    var listGroup = this.state.listGroup;
+    listGroup.push({ListName, ItemList});
+    this.setState({listGroup: listGroup});      
+    
   }
 
 
@@ -45,34 +52,21 @@ class ShoppingList extends Component {
     ItemList2.push({index: 1, name: "soda", category: "general", quantity: 2, type: "L", done: false});
     ItemList2.push({index: 2, name: "sour worms", category: "general", quantity: 1, type: "unit", done: false});
     ItemList2.push({index: 3, name: "ground beef", category: "meat", quantity: 1, type: "lb", done: true});
-    
-        
-    class ListData {
-      constructor(ListName, ListItems) {
-        this.ListName = ListName;
-        this.ItemList = [];
-        ListItems.forEach(item => {
-          this.ItemList.push({index: item.index, name: item.name, category: item.category, quantity: item.quantity, type: item.type, done: item.done});
-  
-        });
-      }
-    };
 
-    var ListGroup = [];
-    ListGroup.push(new ListData(ListName1, ItemList1));
-    ListGroup.push(new ListData(ListName2, ItemList2));
-    ListGroup.push(new ListData(ListName1, ItemList1));
-    ListGroup.push(new ListData(ListName2, ItemList2));
-
-    this.setState({listgroup: ListGroup,
-                    isFetching: false});
+    this.addList(ListName1,ItemList1);
+    this.addList(ListName2,ItemList2);    
+    this.setState({isFetching: false});
 
     }
+
+
+
+
 
     
     render() {
 
-    var ListGroupView = this.state.listgroup.map((list, index) => {
+    var ListGroupView = this.state.listGroup.map((list, index) => {
       return ( <ListView key={index} ListName={list.ListName} ItemList={list.ItemList} />
         );
     });
@@ -82,7 +76,7 @@ class ShoppingList extends Component {
         
         
         <div>
-        <TopMenuBar title="Foodi - Shopping Lists" />
+        <TopMenuBar title="Foodi - Shopping Lists" addButton={this.addList} />
         <div className="MainWindow">
         <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
 
