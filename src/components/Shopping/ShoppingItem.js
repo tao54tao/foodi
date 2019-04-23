@@ -7,7 +7,8 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Button, TextField } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-
+import { Grid } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   itemRow: {
@@ -17,6 +18,8 @@ const styles = theme => ({
   },
 
   itemName: {
+    flexGrow: 1,
+    
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -24,7 +27,7 @@ const styles = theme => ({
   },
 
   itemQuantity: {
-    maxWidth: 40,
+    width: 40,
     paddingLeft: 0,
     paddingRight: theme.spacing.unit,
     textAlign: 'right',
@@ -34,7 +37,7 @@ const styles = theme => ({
   },
 
   itemType: {
-    maxWidth: 40,
+    width: 40,
     padding: 0,
     textAlign: 'left',
     paddingRight: theme.spacing.unit,
@@ -69,8 +72,25 @@ class ShoppingItem extends React.Component {
       return(
           <div className={DoneClass}>
           <ListItem className={classes.itemRow}>
-          <ListItemText className={classes.itemName}primary={this.props.item.name} />
+          <Grid container direction="row" alignItems="center">
+          <Grid item className={classes.itemName}><Typography variant="subheading">{this.props.item.name}</Typography></Grid>
+          <Grid item className={classes.itemQuantity}><Typography variant="subheading">{this.props.item.quantity}</Typography></Grid>
+          <Grid item className={classes.itemType}><Typography variant="subheading">{this.props.item.type}</Typography></Grid>
+          <Grid item><IconButton onClick={this.onClickDone} >
+          <i className="material-icons" >
+          check
+          </i>
+          </IconButton></Grid>
+          <Grid item><IconButton onClick={this.onClickDel} >
+          <i className="material-icons" >
+          delete
+          </i>
+          </IconButton></Grid>
+
+
+{/*           <ListItemText className={classes.itemName}primary={this.props.item.name} />
           <ListItemText primary={this.props.item.quantity} className={classes.itemQuantity} />
+          
           <ListItemText primary={this.props.item.type} className={classes.itemType} />
           <IconButton onClick={this.onClickDone} >
           <i className="material-icons" >
@@ -81,7 +101,8 @@ class ShoppingItem extends React.Component {
           <i className="material-icons" >
           delete
           </i>
-          </IconButton>
+          </IconButton> */}
+          </Grid>
           </ListItem>
           </div>
   
