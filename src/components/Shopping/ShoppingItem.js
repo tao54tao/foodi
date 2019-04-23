@@ -11,10 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 class ShoppingItem extends React.Component {
     constructor(props) {
       super(props);
-      this.onClickClose = this.onClickClose.bind(this);
+      this.onClickDel = this.onClickDel.bind(this);
       this.onClickDone = this.onClickDone.bind(this);
     }
-    onClickClose() {
+    onClickDel() {
       var index = parseInt(this.props.index);
       this.props.removeItem(index);
     }
@@ -35,7 +35,7 @@ class ShoppingItem extends React.Component {
           check
           </i>
           </IconButton>
-          <IconButton onClick={this.onClickClose} >
+          <IconButton onClick={this.onClickDel} >
           <i className="material-icons" >
           delete
           </i>

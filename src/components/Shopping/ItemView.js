@@ -11,7 +11,7 @@ class ItemView extends React.Component {
   
       var items = this.props.items.map((item, index) => {
         return (
-          <ShoppingItem key={index} item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
+          <ShoppingItem item={item} index={index} removeItem={this.props.removeItem} markItemDone={this.props.markItemDone} />
         );
       });
       return (

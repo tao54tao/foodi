@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ListView from './ShoppingList';
+import ShoppingList from './ShoppingList';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import './ShoppingHome.css';
 
 
-class ShoppingList extends Component {
+class ShoppingHome extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,12 +22,13 @@ class ShoppingList extends Component {
   // function to make new list in component state.  takes in ListName and ItemList array as arguments
   addList = (ListName="New Shopping List", ItemList=[]) => {
     var listGroup = this.state.listGroup;
-    listGroup.push({ListName, ItemList});
+    var key = listGroup.length+1;
+    listGroup.push({key, ListName, ItemList});
     this.setState({listGroup: listGroup});      
     
   }
 
-  // function to remove list.  takes in listkey as argument. 
+  // function to remove list.  takes in ListKey as argument. 
   // not tested or implemented
 
   removeList = (ListKey) => {
@@ -121,7 +122,11 @@ class ShoppingList extends Component {
     render() {
 
     var ListGroupView = this.state.listGroup.map((list, index) => {
-      return ( <ListView key={index} ListName={list.ListName} ItemList={list.ItemList} />
+      return ( <ShoppingList key={index} ListName={list.ListName} ItemList={list.ItemList} 
+        listDel={this.removeList} 
+        itemAdd={this.addItem} 
+        itemDel={this.removeItem} 
+        itemDone={this.markItemDone} />
         );
     });
 
@@ -154,4 +159,4 @@ class ShoppingList extends Component {
 
   }
   
-  export default ShoppingList;
+  export default ShoppingHome;

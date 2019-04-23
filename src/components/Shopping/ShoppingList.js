@@ -50,13 +50,13 @@ class ListView extends React.Component {
     });
     this.setState({ItemList: this.props.ItemList});
   }
-  removeItem (itemIndex) {
-    this.props.ItemList.splice(itemIndex, 1);
+  removeItem (ItemKey) {
+    this.props.ItemList.splice(ItemKey, 1);
     this.setState({ItemList: this.props.ItemList});
   }
-  markItemDone(itemIndex) {
-    var item = this.props.ItemList[itemIndex];
-    this.props.ItemList.splice(itemIndex, 1);
+  markItemDone(ItemKey) {
+    var item = this.props.ItemList[ItemKey];
+    this.props.ItemList.splice(ItemKey, 1);
     item.done = !item.done;
     item.done ? this.props.ItemList.push(item) : this.props.ItemList.unshift(item);
     this.setState({ItemList: this.props.ItemList});  
