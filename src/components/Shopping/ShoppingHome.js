@@ -6,7 +6,7 @@ import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import './ShoppingHome.css';
 
 
-class ShoppingHome extends Component {
+class ShoppingHome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +22,7 @@ class ShoppingHome extends Component {
   // function to make new list in component state.  takes in ListName and ItemList array as arguments
   addList = (ListName="New Shopping List", ItemList=[]) => {
     var listGroup = this.state.listGroup;
-    var key = listGroup.length+1;
-    listGroup.push({key, ListName, ItemList});
+    listGroup.push({ListName, ItemList});
     this.setState({listGroup: listGroup});      
     
   }
@@ -56,7 +55,6 @@ class ShoppingHome extends Component {
     var listGroup = this.state.listGroup;
     var List = this.state.listGroup[ListKey].ItemList;
     List.unshift({
-      index: List.length+1,
       name: ListItem.name,
       quantity: ListItem.quantity,
       type: ListItem.type,
@@ -97,16 +95,16 @@ class ShoppingHome extends Component {
 
     var ListName1 = "Stop & Shop";
     var ItemList1 = [];
-    ItemList1.push({index: 1, name: "milk", quantity: 1, type: "gal", done: false});
-    ItemList1.push({index: 2, name: "cheese", quantity: 2, type: "cup", done: true});
-    ItemList1.push({index: 3, name: "wheat bread", quantity: 1, type: "whole", done: true});
+    ItemList1.push({name: "milk", quantity: 1, type: "gal", done: false});
+    ItemList1.push({name: "cheese", quantity: 2, type: "cup", done: true});
+    ItemList1.push({name: "wheat bread", quantity: 1, type: "whole", done: true});
     
   
     var ListName2 = "Shaws";
     var ItemList2 = [];
-    ItemList2.push({index: 1, name: "soda", quantity: 2, type: "L", done: false});
-    ItemList2.push({index: 2, name: "sour worms", quantity: 1, type: "unit", done: false});
-    ItemList2.push({index: 3, name: "ground beef", quantity: 1, type: "lb", done: true});
+    ItemList2.push({name: "soda", quantity: 2, type: "L", done: false});
+    ItemList2.push({name: "sour worms", quantity: 1, type: "unit", done: false});
+    ItemList2.push({name: "ground beef", quantity: 1, type: "lb", done: true});
 
     this.addList(ListName1,ItemList1);
     this.addList(ListName2,ItemList2);    
@@ -122,7 +120,8 @@ class ShoppingHome extends Component {
     render() {
 
     var ListGroupView = this.state.listGroup.map((list, index) => {
-      return ( <ShoppingList key={index} ListName={list.ListName} ItemList={list.ItemList} 
+      
+      return ( <ShoppingList index={index} ListName={list.ListName} ItemList={list.ItemList} 
         listDel={this.removeList} 
         itemAdd={this.addItem} 
         itemDel={this.removeItem} 

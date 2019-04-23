@@ -24,7 +24,10 @@ class AddItemForm extends React.Component {
       var newItemName = this.state.textFieldValue;
       
       if(newItemName) {
-        this.props.addItem({newItemName});
+        var newItem = {};
+        newItem.name = newItemName;
+        
+        this.props.addItem(this.props.listKey,newItem);
         this.refs.form.reset();
         this.setState({
           textFieldValue: ''

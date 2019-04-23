@@ -33,7 +33,7 @@ class ListHeader extends React.Component {
   }
 }
   
-class ListView extends React.Component {
+class ShoppingList extends React.Component {
   constructor (props) {
     super(props);
     this.addItem = this.addItem.bind(this);
@@ -44,7 +44,6 @@ class ListView extends React.Component {
   }
   addItem(todoItem) {
     this.props.ItemList.unshift({
-      index: this.props.ItemList.length+1, 
       name: todoItem.newItemName, 
       done: false
     });
@@ -63,7 +62,7 @@ class ListView extends React.Component {
   }
   render() {
     const { classes } = this.props;
-     
+       
 
     return (
       
@@ -71,8 +70,9 @@ class ListView extends React.Component {
         <Paper className={classes.ListView}>
         <Grid container direction="column" justify="flex-start">
         <ListHeader name={this.props.ListName} />
-        <ItemView items={this.props.ItemList} removeItem={this.removeItem} markItemDone={this.markItemDone}/>
-        <AddItemForm addItem={this.addItem} />
+        {/* need to add the remove list button somewhere */}
+        <ItemView listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
+        <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
         </Grid>
         </Paper>
         </Grid>
@@ -82,9 +82,9 @@ class ListView extends React.Component {
   }
 }
 
-ListView.propTypes = {
+ShoppingList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(ListView);
+export default withStyles(styles)(ShoppingList);

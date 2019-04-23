@@ -15,12 +15,14 @@ class ShoppingItem extends React.Component {
       this.onClickDone = this.onClickDone.bind(this);
     }
     onClickDel() {
-      var index = parseInt(this.props.index);
-      this.props.removeItem(index);
+      var itemIndex = parseInt(this.props.index);
+      var listIndex = parseInt(this.props.listKey);
+      this.props.removeItem(listIndex,itemIndex);
     }
     onClickDone() {
-      var index = parseInt(this.props.index);
-      this.props.markItemDone(index);
+      var itemIndex = parseInt(this.props.index);
+      var listIndex = parseInt(this.props.listKey);
+      this.props.markItemDone(listIndex,itemIndex);
     }
     render () {
       var DoneClass = this.props.item.done ? 
