@@ -14,7 +14,7 @@ const styles = theme => ({
   ListGrid : {
     width: '100%',
     maxWidth: 500,
-    minWidth: 400,
+    minWidth: 360,
 
   },
   ShoppingList: {

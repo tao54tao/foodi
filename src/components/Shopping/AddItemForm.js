@@ -18,12 +18,17 @@ const styles = theme => ({
 
   nameField: {
     marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit,
+  },
+
+  nameFieldWrap: {
+    flexGrow: 1,
 
   },
   
   quantityField: {
     marginLeft: theme.spacing.unit,
-    width: 60,
+    width: 40,
   },
 
   typeField: {
@@ -92,26 +97,33 @@ class AddItemForm extends React.Component {
     render () {
       const {classes} = this.props;
       return (
-        <Grid item>
+        
         
         <form ref="form" onSubmit={this.onSubmit} className="form-inline" >
+        <Grid item container direction="row" >
         
-        
+        <Grid item className={classes.nameFieldWrap}>
         <TextField className={classes.nameField}
         id="itemName"
         ref="itemName"
         label="add item.."
         value={this.state.textFieldValue} 
         onChange={this.handleTextFieldChange}
+        fullWidth
+        
         />
+        </Grid>
+        <Grid item>
 
         <TextField className={classes.quantityField}
         id="itemQuantity"
         ref="itemQuantity"
-        label="quantity"
+        label="qty"
         value={this.state.quantityFieldValue} 
         onChange={this.handleQuantityFieldChange}
         />
+        </Grid>
+        <Grid item>
 
         <FormControl className={classes.typeField}>
         <InputLabel htmlFor="type">unit</InputLabel>
@@ -129,22 +141,19 @@ class AddItemForm extends React.Component {
             <MenuItem value="L">L</MenuItem>
           </Select>
         </FormControl>
+        </Grid>
+        <Grid item>
         
         <IconButton className={classes.addButton} type="submit" color="primary" variant="contained">
-        <i class="material-icons">
+        <i className="material-icons">
         add_shopping_cart
         </i>
         </IconButton>
-        
+        </Grid>
+        </Grid>
         </form>
 
-
         
-        
-        
-        
-        
-        </Grid>
       );   
     }
   }
