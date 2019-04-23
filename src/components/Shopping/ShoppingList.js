@@ -20,6 +20,7 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     
     
+    
   },
 
  
@@ -31,37 +32,16 @@ class ListHeader extends React.Component {
 
   render () {
 
-        return <Grid item><Typography variant="h6" align="center">{this.props.name}</Typography></Grid>;
+        return <Grid item ><Typography variant="h6" align="center">{this.props.name}</Typography></Grid>;
   }
 }
   
 class ShoppingList extends React.Component {
   constructor (props) {
     super(props);
-/*     this.addItem = this.addItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.markItemDone = this.markItemDone.bind(this);
-    this.state={ItemList: this.props.ItemList}; */
-    
+
   }
-/*   addItem(todoItem) {
-    this.props.ItemList.unshift({
-      name: todoItem.newItemName, 
-      done: false
-    });
-    this.setState({ItemList: this.props.ItemList});
-  }
-  removeItem (ItemKey) {
-    this.props.ItemList.splice(ItemKey, 1);
-    this.setState({ItemList: this.props.ItemList});
-  }
-  markItemDone(ItemKey) {
-    var item = this.props.ItemList[ItemKey];
-    this.props.ItemList.splice(ItemKey, 1);
-    item.done = !item.done;
-    item.done ? this.props.ItemList.push(item) : this.props.ItemList.unshift(item);
-    this.setState({ItemList: this.props.ItemList});  
-  } */
+
   render() {
     const { classes } = this.props;
        
@@ -75,11 +55,7 @@ class ShoppingList extends React.Component {
         {/* need to add the remove list button somewhere */}
 
         <ItemView listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
-        
-    
-          <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
-
-
+        <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
         </Grid>
         </Paper>
         </Grid>

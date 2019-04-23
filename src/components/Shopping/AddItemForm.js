@@ -9,24 +9,31 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from '@material-ui/core/IconButton';
+import {spacing} from '@material-ui/system';
+import { left } from '@material-ui/system/positions';
 
 
 
 const styles = theme => ({
 
   nameField: {
-    margin: theme.spacing.unit,
+    marginLeft: theme.spacing.unit * 2,
 
   },
   
   quantityField: {
-    margin: theme.spacing.unit,
+    marginLeft: theme.spacing.unit,
     width: 60,
   },
 
   typeField: {
-    margin: theme.spacing.unit,
+    marginLeft: theme.spacing.unit,
+    width: 60,
     },
+
+  addButton: {
+    marginRight: theme.spacing.unit * 2,
+  }
   
 });
 
@@ -65,11 +72,13 @@ class AddItemForm extends React.Component {
       event.preventDefault();
       var newItemName = this.state.textFieldValue;
       var newQuantity = this.state.quantityFieldValue;
+      var newType = this.state.typeFieldValue;
       
       if(newItemName) {
         var newItem = {};
         newItem.name = newItemName;
         newItem.quantity = newQuantity;
+        newItem.type = newType;
         
         this.props.addItem(this.props.listKey,newItem);
         this.refs.form.reset();
@@ -112,9 +121,8 @@ class AddItemForm extends React.Component {
             
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>none</em>
             </MenuItem>
-            <MenuItem value="whole">whole</MenuItem>
             <MenuItem value="gal">gal</MenuItem>
             <MenuItem value="lb">lb</MenuItem>
             <MenuItem value="box">box</MenuItem>
@@ -122,7 +130,7 @@ class AddItemForm extends React.Component {
           </Select>
         </FormControl>
         
-        <IconButton type="submit" color="primary"><AddIcon /></IconButton>
+        <IconButton className={classes.addButton} type="submit" color="primary"><AddIcon /></IconButton>
         
         </form>
 

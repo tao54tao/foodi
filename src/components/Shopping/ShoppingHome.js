@@ -97,13 +97,13 @@ class ShoppingHome extends React.Component {
     var ItemList1 = [];
     ItemList1.push({name: "milk", quantity: 1, type: "gal", done: false});
     ItemList1.push({name: "cheese", quantity: 2, type: "cup", done: true});
-    ItemList1.push({name: "wheat bread", quantity: 1, type: "whole", done: true});
+    ItemList1.push({name: "wheat bread", quantity: 1, type: "", done: true});
     
   
     var ListName2 = "Shaws";
     var ItemList2 = [];
     ItemList2.push({name: "soda", quantity: 2, type: "L", done: false});
-    ItemList2.push({name: "sour worms", quantity: 1, type: "unit", done: false});
+    ItemList2.push({name: "sour worms", quantity: 1, type: "", done: false});
     ItemList2.push({name: "ground beef", quantity: 1, type: "lb", done: true});
 
     this.addList(ListName1,ItemList1);
