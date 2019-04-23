@@ -5,11 +5,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
-import { Switch, Route } from 'react-router-dom';
+
 
 
 
@@ -33,9 +31,7 @@ const styles = theme => ({
 });
 
 class TopMenuBar extends React.Component {
-  constructor (props) {
-    super(props);
-  }
+
 
   handleClick = () => {
     // set the addButton prop to handleClick function only if the prop was passed to TopMenuBar component

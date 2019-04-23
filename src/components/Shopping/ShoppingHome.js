@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ListView from './ListView';
+import ListView from './ShoppingList';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
-import './ShoppingList.css';
+import './ShoppingHome.css';
 
 
 class ShoppingList extends Component {
@@ -20,7 +20,7 @@ class ShoppingList extends Component {
   }
 
   // function to make new list in component state.  takes in ListName and ItemList array as arguments
-  addList = (ListName="Shopping List", ItemList=[]) => {
+  addList = (ListName="New Shopping List", ItemList=[]) => {
     var listGroup = this.state.listGroup;
     listGroup.push({ListName, ItemList});
     this.setState({listGroup: listGroup});      
@@ -47,17 +47,46 @@ class ShoppingList extends Component {
     this.setState({listGroup: listGroup});
   }
 
+  // function to add item from specified list in state.  takes in ListKey, ListItem as arguments
+  // ListItem has these props:  item.name, item.quantity, item.type, item.done
+  // not tested yet or implemented
 
-    
-  
+  addItem = (ListKey, ListItem={quantity: "", type: ""}) => {
+    var listGroup = this.state.listGroup;
+    var List = this.state.listGroup[ListKey].ItemList;
+    List.unshift({
+      index: List.length+1,
+      name: ListItem.name,
+      quantity: ListItem.quantity,
+      type: ListItem.type,
+      done: false
+    });
+    listGroup[ListKey].ItemList = List;
+    this.setState({listGroup: listGroup});
+  }
+
+  // function to mark an item as done.  takes in ListKey, ItemKey as arguments
+  // not tested yet or implemented
+
+  markItemDone = (ListKey, ItemKey) => {
+
+    var listGroup = this.state.listGroup;
+    var List = this.state.listGroup[ListKey].ItemList;
+    var item = List[ItemKey];
+    item.done = !item.done;
+    List[ItemKey] = item;
+    listGroup[ListKey].ItemList = List;
+    this.setState({listGroup: listGroup});
+  }
+
 
 
   fetchData = () => {
     this.setState({...this.state, isFetching: true})
 
 
-    { // this is where fetch command would run 
-    }
+     // this is where fetch command would run 
+    
     {/* https://code.tutsplus.com/tutorials/fetching-data-in-your-react-application--cms-30670 
       fetch(QUOTE_SERVICE_URL)
     .then(response => response.json())
@@ -67,16 +96,16 @@ class ShoppingList extends Component {
 
     var ListName1 = "Stop & Shop";
     var ItemList1 = [];
-    ItemList1.push({index: 1, name: "milk", category: "dairy", quantity: 1, type: "gal", done: false});
-    ItemList1.push({index: 2, name: "cheese", category: "dairy", quantity: 2, type: "cup", done: true});
-    ItemList1.push({index: 3, name: "wheat bread", category: "general", quantity: 1, type: "whole", done: true});
+    ItemList1.push({index: 1, name: "milk", quantity: 1, type: "gal", done: false});
+    ItemList1.push({index: 2, name: "cheese", quantity: 2, type: "cup", done: true});
+    ItemList1.push({index: 3, name: "wheat bread", quantity: 1, type: "whole", done: true});
     
   
     var ListName2 = "Shaws";
     var ItemList2 = [];
-    ItemList2.push({index: 1, name: "soda", category: "general", quantity: 2, type: "L", done: false});
-    ItemList2.push({index: 2, name: "sour worms", category: "general", quantity: 1, type: "unit", done: false});
-    ItemList2.push({index: 3, name: "ground beef", category: "meat", quantity: 1, type: "lb", done: true});
+    ItemList2.push({index: 1, name: "soda", quantity: 2, type: "L", done: false});
+    ItemList2.push({index: 2, name: "sour worms", quantity: 1, type: "unit", done: false});
+    ItemList2.push({index: 3, name: "ground beef", quantity: 1, type: "lb", done: true});
 
     this.addList(ListName1,ItemList1);
     this.addList(ListName2,ItemList2);    
