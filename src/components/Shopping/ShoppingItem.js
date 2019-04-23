@@ -16,6 +16,13 @@ const styles = theme => ({
 
   },
 
+  itemName: {
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+
+  },
+
   itemQuantity: {
     maxWidth: 40,
     paddingLeft: 0,
@@ -62,7 +69,7 @@ class ShoppingItem extends React.Component {
       return(
           <div className={DoneClass}>
           <ListItem className={classes.itemRow}>
-          <ListItemText primary={this.props.item.name} />
+          <ListItemText className={classes.itemName}primary={this.props.item.name} />
           <ListItemText primary={this.props.item.quantity} className={classes.itemQuantity} />
           <ListItemText primary={this.props.item.type} className={classes.itemType} />
           <IconButton onClick={this.onClickDone} >

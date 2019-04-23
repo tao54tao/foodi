@@ -17,11 +17,11 @@ import { left } from '@material-ui/system/positions';
 const styles = theme => ({
 
   nameField: {
-    marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit,
   },
 
   nameFieldWrap: {
+    marginLeft: theme.spacing.unit * 2,
     flexGrow: 1,
 
   },

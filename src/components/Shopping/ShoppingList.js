@@ -52,7 +52,7 @@ class ShoppingList extends React.Component {
 
     return (
       
-        <Grid  item  className={classes.ListGrid}>
+        <Grid  item className={classes.ListGrid}>
         <Paper className={classes.ShoppingList}>
         <Grid container direction="column" justify="flex-start">
         <ListHeader name={this.props.ListName} />
