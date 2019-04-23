@@ -119,7 +119,7 @@ class ShoppingHome extends React.Component {
     
     render() {
 
-    var ListGroupView = this.state.listGroup.map((list, index) => {
+    var ShoppingListArray = this.state.listGroup.map((list, index) => {
       
       return ( <ShoppingList index={index} ListName={list.ListName} ItemList={list.ItemList} 
         listDel={this.removeList} 
@@ -138,7 +138,7 @@ class ShoppingHome extends React.Component {
         <div className="MainWindow">
         <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
 
-        {ListGroupView}
+        {ShoppingListArray}
         
         </Grid>
         </div>

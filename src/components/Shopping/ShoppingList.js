@@ -7,6 +7,8 @@ import './ShoppingList.css'
 import { Paper } from 'material-ui';
 import AddItemForm from './AddItemForm';
 import ItemView from './ItemView';
+import List from '@material-ui/core/List';
+import { ListItem } from '@material-ui/core';
 
 const styles = theme => ({
   ListView: {
@@ -36,13 +38,13 @@ class ListHeader extends React.Component {
 class ShoppingList extends React.Component {
   constructor (props) {
     super(props);
-    this.addItem = this.addItem.bind(this);
+/*     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.markItemDone = this.markItemDone.bind(this);
-    this.state={ItemList: this.props.ItemList};
+    this.state={ItemList: this.props.ItemList}; */
     
   }
-  addItem(todoItem) {
+/*   addItem(todoItem) {
     this.props.ItemList.unshift({
       name: todoItem.newItemName, 
       done: false
@@ -59,7 +61,7 @@ class ShoppingList extends React.Component {
     item.done = !item.done;
     item.done ? this.props.ItemList.push(item) : this.props.ItemList.unshift(item);
     this.setState({ItemList: this.props.ItemList});  
-  }
+  } */
   render() {
     const { classes } = this.props;
        
@@ -71,8 +73,13 @@ class ShoppingList extends React.Component {
         <Grid container direction="column" justify="flex-start">
         <ListHeader name={this.props.ListName} />
         {/* need to add the remove list button somewhere */}
+
         <ItemView listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
-        <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
+        
+    
+          <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
+
+
         </Grid>
         </Paper>
         </Grid>
