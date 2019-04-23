@@ -130,7 +130,11 @@ class AddItemForm extends React.Component {
           </Select>
         </FormControl>
         
-        <IconButton className={classes.addButton} type="submit" color="primary"><AddIcon /></IconButton>
+        <IconButton className={classes.addButton} type="submit" color="primary" variant="contained">
+        <i class="material-icons">
+        add_shopping_cart
+        </i>
+        </IconButton>
         
         </form>
 

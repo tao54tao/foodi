@@ -11,10 +11,14 @@ import List from '@material-ui/core/List';
 import { ListItem } from '@material-ui/core';
 
 const styles = theme => ({
-  ListView: {
+  ListGrid : {
     width: '100%',
     maxWidth: 500,
-    minWidth: 360,
+    minWidth: 400,
+
+  },
+  ShoppingList: {
+    
     backgroundColor: theme.palette.background.paper,
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
@@ -48,8 +52,8 @@ class ShoppingList extends React.Component {
 
     return (
       
-        <Grid  item  >
-        <Paper className={classes.ListView}>
+        <Grid  item  className={classes.ListGrid}>
+        <Paper className={classes.ShoppingList}>
         <Grid container direction="column" justify="flex-start">
         <ListHeader name={this.props.ListName} />
         {/* need to add the remove list button somewhere */}

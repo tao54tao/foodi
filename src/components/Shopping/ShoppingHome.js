@@ -93,7 +93,7 @@ class ShoppingHome extends React.Component {
                                    isFetching: false}))
     .catch(e => console.log(e)); */}
 
-    var ListName1 = "Stop & Shop";
+    var ListName1 = "Trader Joes";
     var ItemList1 = [];
     ItemList1.push({name: "milk", quantity: 1, type: "gal", done: false});
     ItemList1.push({name: "cheese", quantity: 2, type: "cup", done: true});
