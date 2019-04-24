@@ -89,6 +89,7 @@ class TopNav extends React.Component {
                     <MenuList>
                       <MenuItem onClick={this.handleClose} component={NavLink} to='/'>Home</MenuItem>
                       <MenuItem onClick={this.handleClose} component={NavLink} to='/Shopping'>Shopping List</MenuItem>
+                      <MenuItem onClick={this.handleClose} component={NavLink} to='/Settings'>Settings</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>

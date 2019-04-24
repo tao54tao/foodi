@@ -72,7 +72,7 @@ class ShoppingItem extends React.Component {
       const { classes } = this.props;
       var DoneClass = this.props.item.done ? 
           "done" : "undone";
-      console.log(this.props.item.type)
+     
           
       return(
           <div className={DoneClass}>

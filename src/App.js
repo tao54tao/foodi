@@ -5,6 +5,7 @@ import { getMuiTheme } from 'material-ui/styles';
 import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import ShoppingHome from './components/Shopping/ShoppingHome';
+import Settings from "./components/Settings/Settings";
 
 
 class App extends Component {
@@ -17,8 +18,60 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchData()
+
+    this.hydrateStateWithLocalStorage();
+
+    // add event listener to save state to localStorage
+    // when user leaves/refreshes the page
+    window.addEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
   }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveStateToLocalStorage.bind(this)
+    );
+
+    // saves if component has a chance to unmount
+    this.saveStateToLocalStorage();
+  }
+
+  saveStateToLocalStorage() {
+    // for every item in React state
+    for (let key in this.state) {
+      // save to localStorage
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
+    }
+  }
+
+  hydrateStateWithLocalStorage() {
+    // for all items in state
+    for (let key in this.state) {
+      // if the key exists in localStorage
+      if (localStorage.hasOwnProperty(key)) {
+        // get the key's value from localStorage
+        let value = localStorage.getItem(key);
+
+        // parse the localStorage string and setState
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          // handle empty string
+          this.setState({ [key]: value });
+        }
+      }
+    }
+  }
+
+  resetApp = () => {
+    this.setState({listGroup: []});
+
+  }
+
 
   // function to make new list in component state.  takes in ListName and ItemList array as arguments
   addList = (ListName="New Shopping List", ItemList=[]) => {
@@ -77,19 +130,8 @@ class App extends Component {
 
 
 
-  fetchData = () => {
-    this.setState({...this.state, isFetching: true})
-
-
-     // this is where fetch command would run 
+  setSampleData = () => {
     
-    {/* https://code.tutsplus.com/tutorials/fetching-data-in-your-react-application--cms-30670 
-      fetch(QUOTE_SERVICE_URL)
-    .then(response => response.json())
-    .then(result => this.setState({quotes: result, 
-                                   isFetching: false}))
-    .catch(e => console.log(e)); */}
-
     var ListName1 = "Trader Joes";
     var ItemList1 = [];
     ItemList1.push({name: "milk", quantity: 1, type: "gal", done: false});
@@ -108,6 +150,8 @@ class App extends Component {
     this.setState({isFetching: false});
 
     }
+
+
 
 
 
@@ -130,6 +174,12 @@ class App extends Component {
         itemAdd={this.addItem} 
         itemDel={this.removeItem} 
         itemDone={this.markItemDone}
+        />}
+        />
+        <Route path='/Settings' 
+        render={(props) => <Settings {...props} 
+        resetApp={this.resetApp}
+        setSampleData={this.setSampleData}
         />}
         />
         <Route component={() => (<div>404 Not found </div>)}/>
