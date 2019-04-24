@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 class Settings extends Component {
     render() {
       return (
-        <div>
+        <div className="MainWindow">
         <TopMenuBar title="Foodi - Settings" />
         <Paper>
           <p>Test Settings Page paper</p>

@@ -56,7 +56,7 @@ class TopMenuBar extends React.Component {
 
   return (
     <div className={classes.topMenu}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <TopNav />
           <Typography variant="h6" color="inherit" ml={100} className={classes.grow}>

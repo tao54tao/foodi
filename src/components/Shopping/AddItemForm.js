@@ -53,8 +53,9 @@ class AddItemForm extends React.Component {
       this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
       this.handleQuantityFieldChange = this.handleQuantityFieldChange.bind(this);
       this.handleTypeFieldChange = this.handleTypeFieldChange.bind(this);
-  
+
     }
+
   
     handleTextFieldChange(event) {
       this.setState({
@@ -87,16 +88,18 @@ class AddItemForm extends React.Component {
         newItem.type = newType;
         
         this.props.addItem(this.props.listKey,newItem);
-        event.target.reset();
         this.setState({
         textFieldValue: '',
         quantityFieldValue: '',
         typeFieldValue: ''
         });
+        
+        
       }
     }
     render () {
       const {classes} = this.props;
+      
       return (
         
         <Grid item>
@@ -105,7 +108,6 @@ class AddItemForm extends React.Component {
         
         <Grid item className={classes.nameFieldWrap}>
         <TextField className={classes.nameField}
-        
         id="itemName"
         ref="itemName"
         label="add item.."

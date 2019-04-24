@@ -6,7 +6,7 @@ import { Paper } from 'material-ui';
 class Home extends Component {
     render() {
       return (
-        <div>
+        <div className="MainWindow">
         <TopMenuBar title="Foodi" />
         <Paper>
           <p>Test Home Page paper</p>
