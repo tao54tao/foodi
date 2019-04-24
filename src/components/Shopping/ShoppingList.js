@@ -14,8 +14,11 @@ const styles = theme => ({
   ListGrid : {
     width: '100%',
     maxWidth: 500,
-    minWidth: 360,
+    minWidth: 320,
 
+  },
+  FullWidth : {
+    width: '100%',
   },
   ShoppingList: {
     
@@ -54,7 +57,7 @@ class ShoppingList extends React.Component {
       
         <Grid  item className={classes.ListGrid}>
         <Paper className={classes.ShoppingList}>
-        <Grid container direction="column" justify="flex-start">
+        <Grid className={classes.FullWidth} container direction="column" wrap="nowrap" justify="flex-start">
         <ListHeader name={this.props.ListName} />
         {/* need to add the remove list button somewhere */}
 

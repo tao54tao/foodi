@@ -17,6 +17,7 @@ import IconButton from '@material-ui/core/IconButton';
 const styles = theme => ({
   topMenu: {
     flexGrow: 1,
+    minWidth: 320,
   },
   grow: {
     flexGrow: 1,

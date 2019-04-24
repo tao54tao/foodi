@@ -19,7 +19,12 @@ const styles = theme => ({
 
   itemName: {
     flexGrow: 1,
-    
+    minWidth: 0,
+
+
+  },
+
+  noWrap: {
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -72,8 +77,8 @@ class ShoppingItem extends React.Component {
       return(
           <div className={DoneClass}>
           <ListItem className={classes.itemRow}>
-          <Grid container direction="row" alignItems="center">
-          <Grid item className={classes.itemName}><Typography variant="subheading">{this.props.item.name}</Typography></Grid>
+          <Grid container direction="row" alignItems="center" wrap="nowrap">
+          <Grid item className={classes.itemName}><Typography variant="subheading" className={classes.noWrap}>{this.props.item.name}</Typography></Grid>
           <Grid item className={classes.itemQuantity}><Typography variant="subheading">{this.props.item.quantity}</Typography></Grid>
           <Grid item className={classes.itemType}><Typography variant="subheading">{this.props.item.type}</Typography></Grid>
           <Grid item><IconButton onClick={this.onClickDone} >
@@ -86,22 +91,6 @@ class ShoppingItem extends React.Component {
           delete
           </i>
           </IconButton></Grid>
-
-
-{/*           <ListItemText className={classes.itemName}primary={this.props.item.name} />
-          <ListItemText primary={this.props.item.quantity} className={classes.itemQuantity} />
-          
-          <ListItemText primary={this.props.item.type} className={classes.itemType} />
-          <IconButton onClick={this.onClickDone} >
-          <i className="material-icons" >
-          check
-          </i>
-          </IconButton>
-          <IconButton onClick={this.onClickDel} >
-          <i className="material-icons" >
-          delete
-          </i>
-          </IconButton> */}
           </Grid>
           </ListItem>
           </div>

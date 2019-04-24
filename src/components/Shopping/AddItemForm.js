@@ -18,12 +18,13 @@ const styles = theme => ({
 
   nameField: {
     marginRight: theme.spacing.unit,
+    
   },
 
   nameFieldWrap: {
     marginLeft: theme.spacing.unit * 2,
     flexGrow: 1,
-
+    
   },
   
   quantityField: {
@@ -86,7 +87,7 @@ class AddItemForm extends React.Component {
         newItem.type = newType;
         
         this.props.addItem(this.props.listKey,newItem);
-        this.refs.form.reset();
+        event.target.reset();
         this.setState({
         textFieldValue: '',
         quantityFieldValue: '',
@@ -98,9 +99,9 @@ class AddItemForm extends React.Component {
       const {classes} = this.props;
       return (
         
-        
-        <form ref="form" onSubmit={this.onSubmit} className="form-inline" >
-        <Grid item container direction="row" >
+        <Grid item>
+        <form onSubmit={this.onSubmit}>
+        <Grid container direction="row" wrap="nowrap">
         
         <Grid item className={classes.nameFieldWrap}>
         <TextField className={classes.nameField}
@@ -152,6 +153,8 @@ class AddItemForm extends React.Component {
         </Grid>
         </Grid>
         </form>
+        </Grid>
+        
 
         
       );   

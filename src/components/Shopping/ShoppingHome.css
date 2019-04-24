@@ -1,4 +1,5 @@
 .MainWindow {
     padding: 20px;
+    min-width: 320px;
     
 }
