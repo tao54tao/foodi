@@ -1,8 +1,23 @@
-.done li div {
+.done h3 {
     color: red;
     text-decoration: line-through;
   }
+
+.done button {
+  color:rgba(0, 0, 0, 0.54);
+  text-decoration: none;
+}
+
+
+
   
-.undone {
-    color: #61DAFB;
+.undone h3 {
+  color:rgba(0, 0, 0, 0.87);
+    
   }
+
+.undone button {
+    color:rgba(0, 0, 0, 0.54);
+      
+    }
+  
