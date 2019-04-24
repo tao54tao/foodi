@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
 import IconButton from '@material-ui/core/IconButton';
+import DrawerNav from './DrawerNav';
 
 
 
@@ -59,6 +60,7 @@ class TopMenuBar extends React.Component {
       <AppBar position="fixed">
         <Toolbar>
           <TopNav />
+          <DrawerNav />
           <Typography variant="h6" color="inherit" ml={100} className={classes.grow}>
           {this.props.title}
           </Typography>
