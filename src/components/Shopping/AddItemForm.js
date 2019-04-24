@@ -100,11 +100,12 @@ class AddItemForm extends React.Component {
       return (
         
         <Grid item>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} autoComplete='off'>
         <Grid container direction="row" wrap="nowrap">
         
         <Grid item className={classes.nameFieldWrap}>
         <TextField className={classes.nameField}
+        
         id="itemName"
         ref="itemName"
         label="add item.."
