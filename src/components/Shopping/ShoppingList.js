@@ -11,6 +11,8 @@ import List from '@material-ui/core/List';
 import { ListItem } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import ListMenu from './ListMenu';
+import { AvMicNone } from 'material-ui/svg-icons';
+import { Button, TextField, ListItemText } from '@material-ui/core';
 
 const styles = theme => ({
   ListGrid : {
@@ -41,6 +43,15 @@ const styles = theme => ({
     
   },
 
+  hide: {
+    display: 'none',
+
+  },
+
+  nohide: {
+    
+  },
+
  
 });
 
@@ -49,11 +60,26 @@ const styles = theme => ({
 class ShoppingList extends React.Component {
   constructor (props) {
     super(props);
+    this.state = {
+      nameEdit: false,
+
+    };
+
+  }
+
+  listNameEdit = (listKey) => {
+    console.log(listKey);
 
   }
 
   render() {
     const { classes } = this.props;
+
+    var ListNameHeadClass = this.state.nameEdit ? 
+    "hide" : "nohide";
+
+    var ListNameFieldClass = this.state.nameEdit ?
+    "nohide" : "hide";
 
       
 
@@ -64,10 +90,17 @@ class ShoppingList extends React.Component {
         <Grid className={classes.FullWidth} container direction="column" wrap="nowrap" justify="flex-start">
           <Grid item >
           <Grid container direction="row" alignItems="center" wrap="nowrap" >
-            <Grid item className={classes.ListTitle}><Typography variant="h6" align="center">{this.props.ListName}</Typography>
+            <Grid item className={classes.ListTitle}>
+            <Typography variant="h6" align="center" className={ListNameHeadClass} >{this.props.ListName}</Typography>
+            <TextField className={ListNameFieldClass} 
+            id="listName" 
+            ref="listName" 
+            value={this.props.ListName}
+            onChange={this.handleNameChange}
+            FullWidth /> 
             </Grid>
             <Grid item>
-            <ListMenu listDel={this.props.listDel} listKey={this.props.index} listName={this.props.ListName}/>
+            <ListMenu listDel={this.props.listDel} listKey={this.props.index} listName={this.props.ListName} listNameEdit={this.listNameEdit}/>
             </Grid>
           </Grid>
           </Grid>

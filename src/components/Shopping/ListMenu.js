@@ -48,7 +48,7 @@ class ListMenu extends React.Component {
 
   handleEditBtn = () => {
     this.setState({ open: false });
-    console.log("Edit BTN")
+    this.props.listNameEdit(this.props.listKey);
     }
     
 

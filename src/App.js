@@ -68,8 +68,9 @@ class App extends Component {
   }
 
   resetApp = () => {
+    
     this.setState({listGroup: []});
-
+    
   }
 
 
@@ -150,12 +151,6 @@ class App extends Component {
     this.setState({isFetching: false});
 
     }
-
-
-
-
-
-   
 
 
   render() {
