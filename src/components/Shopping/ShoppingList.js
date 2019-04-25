@@ -6,20 +6,31 @@ import Typography from '@material-ui/core/Typography';
 import './ShoppingList.css' 
 import { Paper } from 'material-ui';
 import AddItemForm from './AddItemForm';
-import ItemView from './ItemView';
+import ItemList from './ItemList';
 import List from '@material-ui/core/List';
 import { ListItem } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import ListMenu from './ListMenu';
 
 const styles = theme => ({
   ListGrid : {
     width: '100%',
-    maxWidth: 500,
+    maxWidth: 400,
     minWidth: 320,
 
   },
   FullWidth : {
     width: '100%',
   },
+
+  ListTitle: {
+    flexGrow: 1,
+  },
+
+  MenuButton: {
+    marginRight: theme.spacing.unit * 2,
+  },
+
   ShoppingList: {
     
     backgroundColor: theme.palette.background.paper,
@@ -35,14 +46,6 @@ const styles = theme => ({
 
 
   
-class ListHeader extends React.Component {
-
-  render () {
-
-        return <Grid item ><Typography variant="h6" align="center">{this.props.name}</Typography></Grid>;
-  }
-}
-  
 class ShoppingList extends React.Component {
   constructor (props) {
     super(props);
@@ -51,17 +54,33 @@ class ShoppingList extends React.Component {
 
   render() {
     const { classes } = this.props;
-       
+
+      
 
     return (
       
         <Grid  item className={classes.ListGrid}>
         <Paper className={classes.ShoppingList}>
         <Grid className={classes.FullWidth} container direction="column" wrap="nowrap" justify="flex-start">
-        <ListHeader name={this.props.ListName} />
+        <Grid item >
+        <Grid container direction="row" alignItems="center" wrap="nowrap" >
+        <Grid item className={classes.ListTitle}><Typography variant="h6" align="center">{this.props.ListName}</Typography></Grid>
+        <Grid item>
+        <ListMenu listDel={this.props.listDel}/>
+
+{/*         <IconButton onClick={this.onClickDone} color="inherit" className={classes.MenuButton}>
+        <i className="material-icons" >
+        more_vert
+        </i>
+        </IconButton> */}
+
+        </Grid>
+        </Grid>
+        </Grid>
+        {/* <ListHeader name={this.props.ListName} classes={classes}/> */}
         {/* need to add the remove list button somewhere */}
 
-        <ItemView listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
+        <ItemList listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
         <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
         </Grid>
         </Paper>

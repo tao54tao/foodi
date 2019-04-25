@@ -16,7 +16,10 @@ class ShoppingHome extends React.Component {
 
     var ShoppingListArray = this.props.listGroup.map((list, index) => {
       
-      return ( <ShoppingList index={index} ListName={list.ListName} ItemList={list.ItemList} 
+      return ( <ShoppingList 
+        index={index} 
+        ListName={list.ListName} 
+        ItemList={list.ItemList} 
         listDel={this.props.listDel} 
         itemAdd={this.props.itemAdd} 
         itemDel={this.props.itemDel} 

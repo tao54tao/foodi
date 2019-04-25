@@ -6,7 +6,7 @@ import ShoppingItem from './ShoppingItem';
 import { Grid } from '@material-ui/core';
 
 
-class ItemView extends React.Component {
+class ItemList extends React.Component {
     render () {
        
       var items = this.props.items.map((item, index) => {
@@ -27,4 +27,4 @@ class ItemView extends React.Component {
     }
   }
 
-  export default ItemView;
+  export default ItemList;
