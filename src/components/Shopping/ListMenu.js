@@ -11,6 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
+import ListDelAlertDialog from './ListDelAlertDialog';
+import { List } from '@material-ui/core';
 
 
 
@@ -30,6 +32,7 @@ const styles = theme => ({
 class ListMenu extends React.Component {
   state = {
     open: false,
+    delAlertOpen: false,
   };
 
   handleToggle = () => {
@@ -46,16 +49,23 @@ class ListMenu extends React.Component {
   handleEditBtn = () => {
     this.setState({ open: false });
     console.log("Edit BTN")
-
     }
     
-  
 
   handleDelBtn = () => {
-    this.setState({ open: false });
+    
+    this.setState({ open: false, delAlertOpen: true });
+    }
+  
+  handleDelAlertClose = () => {
+    this.setState({delAlertOpen: false})
+  }
+
+  handleDelConfirm = () => {
     this.props.listDel(this.props.listKey);
 
-    }
+  }
+
     
   
   render() {
@@ -65,7 +75,11 @@ class ListMenu extends React.Component {
     return (
       <div className={classes.ListMenu}>
         <div>
-
+        <ListDelAlertDialog 
+        open={this.state.delAlertOpen} 
+        handleClose={this.handleDelAlertClose} 
+        handleConfirm={this.handleDelConfirm} />
+        
         <IconButton 
         className={classes.MenuButton} 
         color="inherit" 

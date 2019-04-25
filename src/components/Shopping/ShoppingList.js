@@ -67,7 +67,7 @@ class ShoppingList extends React.Component {
             <Grid item className={classes.ListTitle}><Typography variant="h6" align="center">{this.props.ListName}</Typography>
             </Grid>
             <Grid item>
-            <ListMenu listDel={this.props.listDel} listKey={this.props.index} />
+            <ListMenu listDel={this.props.listDel} listKey={this.props.index} listName={this.props.ListName}/>
             </Grid>
           </Grid>
           </Grid>
