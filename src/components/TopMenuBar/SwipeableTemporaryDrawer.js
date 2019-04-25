@@ -21,7 +21,7 @@ const styles = {
   
 };
 
-class DrawerNav extends React.Component {
+class SwipeableTemporaryDrawer extends React.Component {
   state = {
     open: false,
        
@@ -40,14 +40,13 @@ class DrawerNav extends React.Component {
       <div className={classes.list}>
         <List>
           {[{text: 'Home', icon: 'home', path: '/'},
-            {text: 'Shopping List', icon: 'shopping_cart', path: '/Shopping'},
+            {text: 'Shopping List', icon: 'playlist_add_check', path: '/Shopping'},
             {text: 'Settings', icon: 'settings', path: '/Settings'}].map((link, index) => (
               <ListItem button key={link.text} component={NavLink} to={link.path}>
                 <ListItemIcon><i className="material-icons">{link.icon}</i></ListItemIcon>
                 <ListItemText primary={link.text} />
               </ListItem>
             ))}
-
         </List>
         
       </div>
@@ -59,6 +58,7 @@ class DrawerNav extends React.Component {
         <IconButton onClick={this.toggleDrawer(true)} className={classes.menuButton} color="inherit" aria-label="Menu">
         <MenuIcon />
         </IconButton>
+        <Button onClick={this.toggleDrawer('left', true)}>Open Left</Button>
 
         <SwipeableDrawer
           open={this.state.open}
@@ -80,8 +80,8 @@ class DrawerNav extends React.Component {
   }
 }
 
-DrawerNav.propTypes = {
+SwipeableTemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(DrawerNav);
+export default withStyles(styles)(SwipeableTemporaryDrawer);
