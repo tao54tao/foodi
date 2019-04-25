@@ -43,7 +43,21 @@ class ListMenu extends React.Component {
     this.setState({ open: false });
   };
 
+  handleEditBtn = () => {
+    this.setState({ open: false });
+    console.log("Edit BTN")
 
+    }
+    
+  
+
+  handleDelBtn = () => {
+    this.setState({ open: false });
+    this.props.listDel(this.props.listKey);
+
+    }
+    
+  
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -67,8 +81,7 @@ class ListMenu extends React.Component {
             more_vert
             </i>
                      
-           
-          
+                    
         </IconButton>
 
 
@@ -83,8 +96,8 @@ class ListMenu extends React.Component {
                 <Paper>
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList>
-                      <MenuItem onClick={this.handleClose} >Edit List Title</MenuItem>
-                      <MenuItem onClick={this.handleClose} >Delete List</MenuItem>
+                      <MenuItem onClick={this.handleEditBtn} >Edit List Title</MenuItem>
+                      <MenuItem onClick={this.handleDelBtn} >Delete List</MenuItem>
                       
                     </MenuList>
                   </ClickAwayListener>

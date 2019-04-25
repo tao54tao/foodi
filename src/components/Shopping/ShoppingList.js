@@ -62,26 +62,17 @@ class ShoppingList extends React.Component {
         <Grid  item className={classes.ListGrid}>
         <Paper className={classes.ShoppingList}>
         <Grid className={classes.FullWidth} container direction="column" wrap="nowrap" justify="flex-start">
-        <Grid item >
-        <Grid container direction="row" alignItems="center" wrap="nowrap" >
-        <Grid item className={classes.ListTitle}><Typography variant="h6" align="center">{this.props.ListName}</Typography></Grid>
-        <Grid item>
-        <ListMenu listDel={this.props.listDel}/>
-
-{/*         <IconButton onClick={this.onClickDone} color="inherit" className={classes.MenuButton}>
-        <i className="material-icons" >
-        more_vert
-        </i>
-        </IconButton> */}
-
-        </Grid>
-        </Grid>
-        </Grid>
-        {/* <ListHeader name={this.props.ListName} classes={classes}/> */}
-        {/* need to add the remove list button somewhere */}
-
-        <ItemList listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
-        <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
+          <Grid item >
+          <Grid container direction="row" alignItems="center" wrap="nowrap" >
+            <Grid item className={classes.ListTitle}><Typography variant="h6" align="center">{this.props.ListName}</Typography>
+            </Grid>
+            <Grid item>
+            <ListMenu listDel={this.props.listDel} listKey={this.props.index} />
+            </Grid>
+          </Grid>
+          </Grid>
+          <ItemList listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
+          <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
         </Grid>
         </Paper>
         </Grid>

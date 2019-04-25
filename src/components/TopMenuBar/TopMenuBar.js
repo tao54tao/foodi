@@ -49,7 +49,7 @@ class TopMenuBar extends React.Component {
   render() {
     const { classes } = this.props;
 
-    // If the addButton prob exists, then set the ButtonExist to to have the show class
+    // If the addButton prop exists, then set the ButtonExist to to have the show CSS class
     // If it does not exist, set to hide
 
     var ButtonExist = this.props.addButton ? 
