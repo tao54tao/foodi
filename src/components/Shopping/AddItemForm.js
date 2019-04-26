@@ -46,9 +46,11 @@ const styles = theme => ({
 class AddItemForm extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {textFieldValue: '',
+      this.state = {nameFieldValue: '',
                     quantityFieldValue: '',
-                    typeFieldValue: ''};
+                    typeFieldValue: '',
+                    nameFieldInputRef: '',
+                    };
       this.onSubmit = this.onSubmit.bind(this);
       this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
       this.handleQuantityFieldChange = this.handleQuantityFieldChange.bind(this);
@@ -59,7 +61,7 @@ class AddItemForm extends React.Component {
   
     handleTextFieldChange(event) {
       this.setState({
-          textFieldValue: event.target.value
+          nameFieldValue: event.target.value
       });
     }
 
@@ -77,7 +79,7 @@ class AddItemForm extends React.Component {
 
     onSubmit(event) {
       event.preventDefault();
-      var newItemName = this.state.textFieldValue;
+      var newItemName = this.state.nameFieldValue;
       var newQuantity = this.state.quantityFieldValue;
       var newType = this.state.typeFieldValue;
       
@@ -89,10 +91,12 @@ class AddItemForm extends React.Component {
         
         this.props.addItem(this.props.listKey,newItem);
         this.setState({
-        textFieldValue: '',
+        nameFieldValue: '',
         quantityFieldValue: '',
         typeFieldValue: ''
         });
+
+        this.state.nameFieldInputRef.focus();
         
         
       }
@@ -111,9 +115,10 @@ class AddItemForm extends React.Component {
         id="itemName"
         ref="itemName"
         label="add item.."
-        value={this.state.textFieldValue} 
+        value={this.state.nameFieldValue} 
         onChange={this.handleTextFieldChange}
         fullWidth
+        inputRef={el => this.setState({nameFieldInputRef: el})}
         
         />
         </Grid>
@@ -157,6 +162,8 @@ class AddItemForm extends React.Component {
         </Grid>
         </form>
         </Grid>
+
+        
         
 
         

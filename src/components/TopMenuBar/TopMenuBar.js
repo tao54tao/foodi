@@ -9,10 +9,6 @@ import AddIcon from '@material-ui/icons/Add';
 import TopNav from './TopNav';
 import IconButton from '@material-ui/core/IconButton';
 import DrawerNav from './DrawerNav';
-import SwipeableTemporaryDrawer from './SwipeableTemporaryDrawer';
-
-
-
 
 
 
@@ -30,7 +26,7 @@ const styles = theme => ({
     marginRight: 20,
   },
   hide: {
-    display: 'none',
+    visibility: 'hidden',
   }
 });
 
@@ -42,9 +38,8 @@ class TopMenuBar extends React.Component {
     if (this.props.addButton) {
       this.props.addButton();
 
-    }
-    
-  }
+    };
+  };
   
   render() {
     const { classes } = this.props;
