@@ -41,6 +41,7 @@ class DrawerNav extends React.Component {
         <List>
           {[{text: 'Home', icon: 'home', path: '/'},
             {text: 'Shopping List', icon: 'shopping_cart', path: '/Shopping'},
+            {text: 'Recipe Search', icon: 'search', path: '/RecipeSearch'},
             {text: 'Settings', icon: 'settings', path: '/Settings'}].map((link, index) => (
               <ListItem button key={link.text} component={NavLink} to={link.path}>
                 <ListItemIcon><i className="material-icons">{link.icon}</i></ListItemIcon>

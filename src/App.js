@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import ShoppingHome from './components/Shopping/ShoppingHome';
 import Settings from "./components/Settings/Settings";
+import RecipeSearch from './components/RecipeSearch/RecipeSearch';
 
 
 class App extends Component {
@@ -176,6 +177,11 @@ class App extends Component {
         itemAdd={this.addItem} 
         itemDel={this.removeItem} 
         itemDone={this.markItemDone}
+        />}
+        />
+        <Route path='/RecipeSearch' 
+        render={(props) => <RecipeSearch {...props} 
+        
         />}
         />
         <Route path='/Settings' 
