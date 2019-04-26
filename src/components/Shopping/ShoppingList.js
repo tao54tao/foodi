@@ -102,7 +102,7 @@ class ShoppingList extends React.Component {
           <Grid item >
           <Grid container direction="row" alignItems="center" wrap="nowrap" >
             <Grid item className={classes.ListTitle}>
-            <Typography variant="h6" align="center" className={ListNameHeadClass} >{this.props.ListName}</Typography>
+            <Typography variant="h6" align="center" className={ListNameHeadClass} onClick={this.listNameEdit}>{this.props.ListName}</Typography>
             <div className={ListNameFieldClass} >
             <ClickAwayListener onClickAway={this.listNameSave}>
 
