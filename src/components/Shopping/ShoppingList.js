@@ -118,7 +118,10 @@ class ShoppingList extends React.Component {
               onKeyPress={this.handleKeyPress}
               fullWidth
               inputProps={{
-                style: { textAlign: "center" }
+                style: {  textAlign: "center",
+                          fontSize: "1.25rem",
+                          lineHeight: "1.6",
+                          letterSpacing: "0.0075em"}
               }}
               
               
