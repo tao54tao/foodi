@@ -28,6 +28,8 @@ const styles = theme => ({
 
   ListTitle: {
     flexGrow: 1,
+    minWidth: 0,
+    marginLeft: theme.spacing.unit * 2,
   },
 
   MenuButton: {
@@ -42,6 +44,8 @@ const styles = theme => ({
     
     
   },
+
+
 
  
 });
@@ -87,10 +91,10 @@ class ShoppingList extends React.Component {
     const { classes } = this.props;
 
     var ListNameHeadClass = this.state.nameEdit ? 
-    "hide" : "nohide";
+    "hide nowrap" : "nohide nowrap";
 
     var ListNameFieldClass = this.state.nameEdit ?
-    "nohide" : "hide";
+    "nohide nowrap" : "hide nowrap";
 
       
 
@@ -100,22 +104,26 @@ class ShoppingList extends React.Component {
         <Paper className={classes.ShoppingList}>
         <Grid className={classes.FullWidth} container direction="column" wrap="nowrap" justify="flex-start">
           <Grid item >
-          <Grid container direction="row" alignItems="center" wrap="nowrap" >
+          <Grid container direction="row" alignItems="center"  wrap="nowrap" className={classes.FullWidth}  >
             <Grid item className={classes.ListTitle}>
             <Typography variant="h6" align="center" className={ListNameHeadClass} onClick={this.listNameEdit}>{this.props.ListName}</Typography>
             <div className={ListNameFieldClass} >
-            <ClickAwayListener onClickAway={this.listNameSave}>
+              <ClickAwayListener onClickAway={this.listNameSave}>
 
-            <TextField  
-            id="listName" 
-            ref="listName" 
-            value={this.props.ListName}
-            onChange={this.handleNameChange}
-            FullWidth 
-            onKeyPress={this.handleKeyPress}
-            
-            />
-            </ClickAwayListener>
+              <TextField  
+              id="listName" 
+              ref="listName" 
+              value={this.props.ListName}
+              onChange={this.handleNameChange}
+              onKeyPress={this.handleKeyPress}
+              fullWidth
+              inputProps={{
+                style: { textAlign: "center" }
+              }}
+              
+              
+              />
+              </ClickAwayListener>
             </div> 
             </Grid>
             <Grid item>

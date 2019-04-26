@@ -79,7 +79,7 @@ class ShoppingItem extends React.Component {
           <ListItem className={classes.itemRow}>
           <Grid container direction="row" alignItems="center" wrap="nowrap">
           <Grid item className={classes.itemName}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.name}</Typography></Grid>
-          <Grid item className={classes.itemQuantity}><Typography variant="subheading" color="inherit" >{this.props.item.quantity}</Typography></Grid>
+          <Grid item className={classes.itemQuantity}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.quantity}</Typography></Grid>
           <Grid item className={classes.itemType}><Typography variant="subheading" color="inherit" >{this.props.item.type}</Typography></Grid>
           <Grid item><IconButton onClick={this.onClickDone} color="inherit" >
           <i className="material-icons" >

@@ -19,7 +19,7 @@ import SwipeableTemporaryDrawer from './SwipeableTemporaryDrawer';
 const styles = theme => ({
   topMenu: {
     flexGrow: 1,
-    minWidth: 320,
+    minWidth: 0,
   },
   grow: {
     flexGrow: 1,
