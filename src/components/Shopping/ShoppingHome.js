@@ -21,6 +21,7 @@ class ShoppingHome extends React.Component {
         ListName={list.ListName} 
         ItemList={list.ItemList} 
         listDel={this.props.listDel} 
+        setListName={this.props.setListName}
         itemAdd={this.props.itemAdd} 
         itemDel={this.props.itemDel} 
         itemDone={this.props.itemDone} />

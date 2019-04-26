@@ -21,3 +21,11 @@
       
     }
   
+.hide  {
+      display: none !important;
+  
+    }
+  
+.nohide  {
+      
+    }

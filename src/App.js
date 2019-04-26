@@ -90,6 +90,12 @@ class App extends Component {
     this.setState({listGroup: listGroup});
   }
 
+  setListName = (ListKey, name) => {
+    var listGroup = this.state.listGroup;
+    listGroup[ListKey].ListName = name;
+    this.setState({listGroup: listGroup});
+  }
+
   // function to remove item from specified list in state.  takes in ListKey and ItemKey as arguments
   removeItem = (ListKey, ItemKey) => {
 
@@ -166,6 +172,7 @@ class App extends Component {
         listGroup={this.state.listGroup}
         listDel={this.removeList} 
         listAdd={this.addList}
+        setListName={this.setListName}
         itemAdd={this.addItem} 
         itemDel={this.removeItem} 
         itemDone={this.markItemDone}
