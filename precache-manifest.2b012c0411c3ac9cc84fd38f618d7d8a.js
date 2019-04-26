@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/foodi/static/js/runtime~main.a24f2772.js"
   },
   {
-    "revision": "1766e0251a2d3050d4d1",
-    "url": "/foodi/static/js/main.5dcec562.chunk.js"
+    "revision": "ba0063be0c66c2bfabeb",
+    "url": "/foodi/static/js/main.4c76f376.chunk.js"
   },
   {
     "revision": "595479eeb24687a13f1f",
     "url": "/foodi/static/js/2.411c20bb.chunk.js"
   },
   {
-    "revision": "1766e0251a2d3050d4d1",
+    "revision": "ba0063be0c66c2bfabeb",
     "url": "/foodi/static/css/main.f8cabade.chunk.css"
   },
   {
-    "revision": "8c87a73a96dd0dce7e9e6279bc34596a",
+    "revision": "6c95e3f893d496fb88abfd53b21abc63",
     "url": "/foodi/index.html"
   }
 ];
