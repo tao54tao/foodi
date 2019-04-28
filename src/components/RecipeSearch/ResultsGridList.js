@@ -8,6 +8,9 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import withWidth, {isWidthUp} from '@material-ui/core/withWidth';
+import { typography } from '@material-ui/system';
+import { Typography } from '@material-ui/core';
+import { Paper } from 'material-ui';
 
 
 const styles = theme => ({
@@ -16,119 +19,34 @@ const styles = theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
+    
   },
   gridList: {
     maxWidth: 1000,
     
   },
+  results: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing.unit * 2,    
+
+
+  },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
+
+
 });
 
 
 
- let tileData = [
-   {
-     img: 'https://i.imgur.com/eTuCPxM.jpg',
-     title: 'Image',
-     description: 'sample recepie description',
-
-   },
-   {
-    img: 'https://i.imgur.com/eTuCPxM.jpg',
-    title: 'Image1',
-    description: 'sample recepie description1',
-
-  },
-  {
-    img: 'https://i.imgur.com/eTuCPxM.jpg',
-    title: 'Image2',
-    description: 'sample recepie description2',
-
-  },
-  {
-    img: 'https://i.imgur.com/eTuCPxM.jpg',
-    title: 'Image3',
-    description: 'sample recepie description3',
-
-  },
-  {
-    img: 'https://i.imgur.com/eTuCPxM.jpg',
-    title: 'Image',
-    description: 'sample recepie description',
-
-  },
-  {
-   img: 'https://i.imgur.com/eTuCPxM.jpg',
-   title: 'Image1',
-   description: 'sample recepie description1',
-
- },
- {
-   img: 'https://i.imgur.com/eTuCPxM.jpg',
-   title: 'Image2',
-   description: 'sample recepie description2',
-
- },
- {
-   img: 'https://i.imgur.com/eTuCPxM.jpg',
-   title: 'Image3',
-   description: 'sample recepie description3',
-
- },
- {
-  img: 'https://i.imgur.com/eTuCPxM.jpg',
-  title: 'Image',
-  description: 'sample recepie description',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image1',
- description: 'sample recepie description1',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image2',
- description: 'sample recepie description2',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image3',
- description: 'sample recepie description3',
-
-},
-{
-  img: 'https://i.imgur.com/eTuCPxM.jpg',
-  title: 'Image',
-  description: 'sample recepie description',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image1',
- description: 'sample recepie description1',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image2',
- description: 'sample recepie description2',
-
-},
-{
- img: 'https://i.imgur.com/eTuCPxM.jpg',
- title: 'Image3',
- description: 'sample recepie description3',
-
-},
- ];
+ 
 
 class ResultsGridList extends React.Component {
+  constructor (props) {
+    super(props);
+
+  }
 
 
   render() {
@@ -142,20 +60,26 @@ class ResultsGridList extends React.Component {
     if (width === 'sm') {
       columns = 3;
     }
-    
 
-  return (
-    <div className={classes.root}>
-      <GridList cellHeight={180}  cols={columns} className={classes.gridList}>
-         <GridListTile key="Subheader" cols={columns} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Search Results...</ListSubheader>
-        </GridListTile>
-        {tileData.map(tile => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+    if (this.props.data == undefined || this.props.data.length == 0) {
+      var results = <Typography>No results</Typography>
+      
+      
+    }
+
+    else {
+      
+      var results = (
+        
+
+        this.props.data.map(result => (
+          
+          <GridListTile key={result.recipe.uri}>
+          
+            <img src={result.recipe.image} alt={result.recipe.label} />
             <GridListTileBar
-              title={tile.title}
-              subtitle={<span>{tile.description}</span>}
+              title={result.recipe.label}
+              subtitle={<span>{result.recipe.source}</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
                   <InfoIcon />
@@ -163,9 +87,26 @@ class ResultsGridList extends React.Component {
               }
             />
           </GridListTile>
-        ))}
+        ))
+
+
+      )
+    };
+    
+
+  return (
+    <div className={classes.root}>
+    <Paper className={classes.results}>
+      <GridList cellHeight={180}  cols={columns} className={classes.gridList}>
+         <GridListTile key="Subheader" cols={columns} style={{ height: 'auto' }}>
+          <ListSubheader component="div">Search Results...</ListSubheader>
+        </GridListTile>
+        
+        {results}
       </GridList>
+      </Paper>
     </div>
+    
   );
 }
 }

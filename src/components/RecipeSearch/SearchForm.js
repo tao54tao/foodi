@@ -19,9 +19,6 @@ const styles = theme => ({
       marginRight: theme.spacing.unit * 2,
       flexGrow: 1,
       
-      
-     
-      
     },
 
     FullWidth : {
@@ -33,17 +30,13 @@ const styles = theme => ({
       display: 'flex',
       flexGrow: 1,
     
-
-
     },
 
     searchForm: {
     
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing.unit * 2,    
-    
-    
-      
+
     },
 
     searchField: {
@@ -60,6 +53,7 @@ class SearchForm extends Component {
 
         this.state = {
             searchTerms: '',
+            hideResults: true,
             
         }
         this.onSubmit = this.onSubmit.bind(this);
@@ -77,15 +71,8 @@ class SearchForm extends Component {
       var newSearchTerms = this.state.searchTerms;
       
       if(newSearchTerms) {
-       
-        this.setState({
-        searchTerms: '',
-        
-        });
-
-      
-        
-        
+        this.props.searchDB(newSearchTerms);
+               
       }
     }
 
@@ -94,6 +81,8 @@ class SearchForm extends Component {
     
     render() {
         const {classes} = this.props;
+
+
 
         return (
         <div className={classes.container}>
