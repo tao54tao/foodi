@@ -13,11 +13,42 @@ import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-    container: {
-        width: '100%',
-        maxWidth: 400,
-        minWidth: 320,
 
+
+    searchFieldWrap: {
+      marginRight: theme.spacing.unit * 2,
+      flexGrow: 1,
+      
+      
+     
+      
+    },
+
+    FullWidth : {
+      width: '100%',
+      
+    },
+
+    container : {
+      display: 'flex',
+      flexGrow: 1,
+    
+
+
+    },
+
+    searchForm: {
+    
+      backgroundColor: theme.palette.background.paper,
+      padding: theme.spacing.unit * 2,    
+    
+    
+      
+    },
+
+    searchField: {
+      marginRight: theme.spacing.unit,
+      
     },
 
 });
@@ -28,9 +59,34 @@ class SearchForm extends Component {
         super(props);
 
         this.state = {
-            saerchTerms: '',
+            searchTerms: '',
             
         }
+        this.onSubmit = this.onSubmit.bind(this);
+        this.handleSearchTermsChange = this.handleSearchTermsChange.bind(this);
+    }
+
+    handleSearchTermsChange(event) {
+      this.setState({
+          searchTerms: event.target.value
+      });
+    }
+
+    onSubmit(event) {
+      event.preventDefault();
+      var newSearchTerms = this.state.searchTerms;
+      
+      if(newSearchTerms) {
+       
+        this.setState({
+        searchTerms: '',
+        
+        });
+
+      
+        
+        
+      }
     }
 
 
@@ -40,24 +96,39 @@ class SearchForm extends Component {
         const {classes} = this.props;
 
         return (
-      
-        <div>
-        <form className={classes.container} noValidate autoComplete="off">
-        <TextField
-          id="standard-full-width"
-          
-          style={{ margin: 8 }}
+        <div className={classes.container}>
+        <Paper className={classes.searchForm}>
+        <form onSubmit={this.onSubmit} autoComplete='off'>
+        <Grid container direction="row" justify="center" alignItems="center">
+       
+        <Grid item className={classes.searchFieldWrap}>
+        
+        <TextField 
+          id="search-field"
           placeholder="Enter Search Terms Here"
           helperText="ex: grilled chicken"
-          fullWidth
-          margin="normal"
+          fullWidth          
           InputLabelProps={{
             shrink: true,
           }}
+          value={this.state.searchTerms}
+          onChange={this.handleSearchTermsChange}
         />
+        
+        </Grid>
+        <Grid item>
+        <Button type="submit" color="primary" variant="contained">
+              Search
+            </Button>
+            </Grid>
 
+     
+        </Grid>
         </form>
+        </Paper>
         </div>
+
+        
                 
       );
     }

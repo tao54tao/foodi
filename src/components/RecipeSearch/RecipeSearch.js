@@ -7,6 +7,9 @@ import SearchForm from './SearchForm';
 import Grid from '@material-ui/core/Grid';
 import ResultsGridList from './ResultsGridList';
 
+
+
+
 class RecipeSearch extends Component {
     constructor(props) {
         super(props);
@@ -32,8 +35,9 @@ class RecipeSearch extends Component {
 
     
     render() {
+        const {classes} = this.props;
       return (
-      
+        
         <div>
         <TopMenuBar title="Foodi - Recipe Search" />
         <div className="MainWindow">
@@ -42,10 +46,13 @@ class RecipeSearch extends Component {
         direction="column"
         justify="flex-start"
         alignItems="center"
+        spacing={16}
+        
         >
-        <Grid item>
+        <Grid item >
             <SearchForm />        
         </Grid>
+
         <Grid item>
             <ResultsGridList />
         </Grid>
