@@ -59,9 +59,12 @@ class SearchForm extends Component {
       
       if(newSearchTerms) {
         this.props.searchDB(newSearchTerms);
+        window.focus();
                
       }
     }
+
+    
 
 
 

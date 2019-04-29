@@ -8,7 +8,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import withWidth from '@material-ui/core/withWidth';
 import { Typography } from '@material-ui/core';
 import { Paper } from 'material-ui';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import RecipeCard from './RecipeCard';
 
 
@@ -57,7 +56,7 @@ class ResultsGridList extends React.Component {
     this.setState({selectedRecipe: recipe});
   }
 
-  handleClickAway = () =>
+  handleCardClose = () =>
   {
     this.setState({selectedRecipe: ''});
   }
@@ -120,16 +119,14 @@ class ResultsGridList extends React.Component {
 
     else {
       let selectedIndex = this.props.data.findIndex(x => x.recipe.uri === this.state.selectedRecipe);
-      console.log(this.props.data[selectedIndex].recipe);
+     
       
       
       content = (
-        <ClickAwayListener onClickAway={this.handleClickAway}>
-        <RecipeCard recipe={this.props.data[selectedIndex].recipe} />
-{/*         <Paper className={classes.results}>
-        <div>This is where the recipe details</div>
-        </Paper> */}
-        </ClickAwayListener>
+        
+        <RecipeCard recipe={this.props.data[selectedIndex].recipe} close={this.handleCardClose}/>
+
+        
       )
     };
   

@@ -14,7 +14,6 @@ import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -96,8 +95,10 @@ class RecipeReviewCard extends React.Component {
         <CardHeader
       
           action={
-            <IconButton>
-              <MoreVertIcon />
+            <IconButton onClick={this.props.close}>
+              <i class="material-icons">
+            close
+            </i>
             </IconButton>
           }
           title={this.props.recipe.label}

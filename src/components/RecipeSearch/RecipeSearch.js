@@ -14,7 +14,9 @@ class RecipeSearch extends Component {
             isFetching: false,
             data: [],
             hideResults: true,
+            
         }
+        
     }
 
     searchRecipe = (terms) => {
@@ -33,9 +35,7 @@ class RecipeSearch extends Component {
 
     }
 
-
-
-    
+     
     render() {
         var resultsClass = this.state.hideResults ? 
         "hide fullWidth" : "nohide fullWidth";
@@ -56,10 +56,10 @@ class RecipeSearch extends Component {
         
         >
         <Grid item className='fullWidth'>
-            <SearchForm searchDB={this.searchRecipe}/>        
+            <SearchForm searchDB={this.searchRecipe} />        
         </Grid>
 
-        <Grid item className={resultsClass}>
+        <Grid item className={resultsClass}  >
             <ResultsGridList data={this.state.data}/>
         </Grid>
 
