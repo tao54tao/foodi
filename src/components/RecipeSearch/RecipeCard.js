@@ -8,7 +8,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
@@ -16,6 +15,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Divider from '@material-ui/core/Divider';
+import './RecipeCard.css'
 
 const styles = theme => ({
   card: {
@@ -53,6 +59,37 @@ class RecipeReviewCard extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const NutrientList = [
+      {name:'Total Fat', code:'FAT'},
+      {name:'Saturated Fat', code:'FASAT'},
+      {name:'Trans Fat', code:'FATRN'},
+      {name:'Cholesterol', code:'CHOLE'},
+      {name:'Sodium', code:'NA'},
+      {name:'Total Carbohydrate', code:'CHOCDF'},
+      {name:'Dietary Fiber', code:'FIBTG'},
+      {name:'Sugars', code:'SUGAR'},
+      {name:'Protein', code:'PROCNT'},
+    ];
+
+    const NutrientFacts = NutrientList.map(row => {
+      let totalNutrients = this.props.recipe.totalNutrients[row.code];
+      if (totalNutrients === undefined) {
+        totalNutrients = {quantity: 0}
+      }
+      let totalDaily = this.props.recipe.totalDaily[row.code];
+      if (totalDaily === undefined) {
+        totalDaily = {quantity: 0}
+      }
+      
+      return {name: row.name, 
+              code: row.code, 
+              quantity: Math.round(totalNutrients.quantity / this.props.recipe.yield),
+              unit: totalNutrients.unit,
+              daily: Math.round(totalDaily.quantity / this.props.recipe.yield) 
+              }
+      
+    });
+
 
     return (
       <Card className={classes.card}>
@@ -73,7 +110,7 @@ class RecipeReviewCard extends React.Component {
         />
         <CardContent>
           <Typography component="p">
-            first paragraph
+            Servings: {this.props.recipe.yield} 
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
@@ -96,29 +133,34 @@ class RecipeReviewCard extends React.Component {
         </CardActions>
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-              minutes.
-            </Typography>
-            <Typography paragraph>
-              Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-              heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-              browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving
-              chicken and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion,
-              salt and pepper, and cook, stirring often until thickened and fragrant, about 10
-              minutes. Add saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>
-              Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-              without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat
-              to medium-low, add reserved shrimp and mussels, tucking them down into the rice, and
-              cook again without stirring, until mussels have opened and rice is just tender, 5 to 7
-              minutes more. (Discard any mussels that don’t open.)
-            </Typography>
-            <Typography>
-              Set aside off of the heat to let rest for 10 minutes, and then serve.
-            </Typography>
+            <Typography variant="h4">Nutrition Facts</Typography>
+            <Divider  />
+            <Typography variant='subtitle2'>Amount Per Serving</Typography>
+            <Typography variant='subtitle1'>Calories {Math.round(this.props.recipe.totalNutrients.ENERC_KCAL.quantity / this.props.recipe.yield)}</Typography>
+            <Divider  />
+            <Table className='nutrientFacts'>
+              <TableHead>
+                <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell align="right">% Daily Values</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+               {NutrientFacts.map(row => (
+                  <TableRow>
+                    <TableCell>
+                    {row.name} {row.quantity}{row.unit}
+                      
+                      </TableCell>
+                      <TableCell align="right">
+                      {row.daily}%
+                      </TableCell>
+
+                  </TableRow>
+                ))} 
+               
+              </TableBody>
+            </Table>
           </CardContent>
         </Collapse>
       </Card>

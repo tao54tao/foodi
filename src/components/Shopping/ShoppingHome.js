@@ -84,7 +84,7 @@ class ShoppingHome extends React.Component {
         
         <div>
         <TopMenuBar title="Foodi - Shopping Lists" addButton={this.props.listAdd} />
-        <div className="MainWindow">
+        <div className="ShoppingWindow">
         <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
 
         {ShoppingListArray}
