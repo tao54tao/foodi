@@ -140,13 +140,13 @@ class RecipeReviewCard extends React.Component {
             <Typography variant='subtitle1'>Calories {Math.round(this.props.recipe.totalNutrients.ENERC_KCAL.quantity / this.props.recipe.yield)}</Typography>
             <Divider  />
             <Table className='nutrientFacts'>
-              <TableHead>
-                <TableRow>
-                  <TableCell></TableCell>
-                  <TableCell align="right">% Daily Values</TableCell>
-                </TableRow>
-              </TableHead>
+              
+             
+              
               <TableBody>
+              <TableRow>
+                  <TableCell colspan={2} align="right">% Daily Values</TableCell>
+              </TableRow>
                {NutrientFacts.map(row => (
                   <TableRow>
                     <TableCell>
