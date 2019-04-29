@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ShoppingList from './ShoppingList';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import './ShoppingHome.css';
 import { withStyles } from '@material-ui/core/styles';
-import centerFocusStrong from 'material-ui/svg-icons/image/center-focus-strong';
 
 const styles = theme => ({
 
@@ -39,16 +38,13 @@ const styles = theme => ({
 
 
 class ShoppingHome extends React.Component {
-  constructor (props) {
-    super(props);
-
-  }
     
     render() {
       const { classes } = this.props;
+      let ShoppingListArray = null;
 
-    if (this.props.listGroup.length == 0) {
-    var ShoppingListArray = <Grid container item justify="center" wrap="nowrap" direction="column" className={classes.instructionsGrid}>
+    if (this.props.listGroup.length === 0) {
+    ShoppingListArray = <Grid container item justify="center" wrap="nowrap" direction="column" className={classes.instructionsGrid}>
     
   
     <Grid item className={classes.notFound}>
@@ -59,7 +55,7 @@ class ShoppingHome extends React.Component {
       
     }
     else {
-      var ShoppingListArray = this.props.listGroup.map((list, index) => {
+      ShoppingListArray = this.props.listGroup.map((list, index) => {
         return ( <ShoppingList 
           index={index} 
           ListName={list.ListName} 

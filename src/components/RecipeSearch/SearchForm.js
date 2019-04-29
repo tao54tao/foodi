@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import TopMenuBar from '../TopMenuBar/TopMenuBar';
-import Typography from 'material-ui/styles/typography';
 import { Paper } from 'material-ui';
 import Grid from '@material-ui/core/Grid';
-import { Button, TextField, ListItemText } from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import AddIcon from '@material-ui/icons/Add';
-import IconButton from '@material-ui/core/IconButton';
+import { Button, TextField } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({

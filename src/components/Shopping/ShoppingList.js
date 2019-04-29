@@ -7,12 +7,8 @@ import './ShoppingList.css'
 import { Paper } from 'material-ui';
 import AddItemForm from './AddItemForm';
 import ItemList from './ItemList';
-import List from '@material-ui/core/List';
-import { ListItem } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
 import ListMenu from './ListMenu';
-import { AvMicNone } from 'material-ui/svg-icons';
-import { Button, TextField, ListItemText } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 const styles = theme => ({

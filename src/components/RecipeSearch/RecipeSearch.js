@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
-import Typography from 'material-ui/styles/typography';
-import { Paper } from 'material-ui';
 import './RecipeSearch.css'
 import SearchForm from './SearchForm';
 import Grid from '@material-ui/core/Grid';
@@ -35,12 +33,13 @@ class RecipeSearch extends Component {
 
     }
 
+
+
     
     render() {
-        const {classes} = this.props;
-
         var resultsClass = this.state.hideResults ? 
         "hide" : "nohide";
+
 
       return (
         
