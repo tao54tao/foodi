@@ -38,7 +38,7 @@ class RecipeSearch extends Component {
     
     render() {
         var resultsClass = this.state.hideResults ? 
-        "hide" : "nohide";
+        "hide fullWidth" : "nohide fullWidth";
 
 
       return (
@@ -55,7 +55,7 @@ class RecipeSearch extends Component {
         spacing={16}
         
         >
-        <Grid item >
+        <Grid item className='fullWidth'>
             <SearchForm searchDB={this.searchRecipe}/>        
         </Grid>
 

@@ -18,16 +18,11 @@ const styles = theme => ({
       
     },
 
-    container : {
-      display: 'flex',
-      flexGrow: 1,
-    
-    },
-
     searchForm: {
     
       backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing.unit * 2,    
+      padding: theme.spacing.unit * 2,
+        
 
     },
 
@@ -77,7 +72,7 @@ class SearchForm extends Component {
 
 
         return (
-        <div className={classes.container}>
+        <div className={classes.fullWidth}>
         <Paper className={classes.searchForm}>
         <form onSubmit={this.onSubmit} autoComplete='off'>
         <Grid container direction="row" justify="center" alignItems="center">
