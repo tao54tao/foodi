@@ -13,8 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFetching: false,
       listGroup: [],
+      savedRecipes: [],
     };
   }
 
@@ -70,7 +70,8 @@ class App extends Component {
 
   resetApp = () => {
     
-    this.setState({listGroup: []});
+    this.setState({listGroup: [],
+                  savedRecipes: [],});
     
   }
 
@@ -155,12 +156,27 @@ class App extends Component {
 
     this.addList(ListName1,ItemList1);
     this.addList(ListName2,ItemList2);    
-    this.setState({isFetching: false});
 
+    }
+
+    addRecipe = (recipe) => {
+      var savedRecipes = this.state.savedRecipes;
+      savedRecipes.push({recipe});
+      this.setState({savedRecipes: savedRecipes}); 
+      console.log({savedRecipes});
+
+    }
+
+    removeRecipe = (recipeKey) => {
+      var savedRecipes = this.state.savedRecipes;
+      savedRecipes.splice(recipeKey, 1);
+      this.setState({savedRecipes: savedRecipes});
+      console.log({savedRecipes});
     }
 
 
   render() {
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
       <div className="App">
@@ -181,6 +197,9 @@ class App extends Component {
         />
         <Route path='/RecipeSearch' 
         render={(props) => <RecipeSearch {...props} 
+        addRecipe={this.addRecipe}
+        removeRecipe={this.removeRecipe}
+        savedRecipes={this.state.savedRecipes}
         
         />}
         />

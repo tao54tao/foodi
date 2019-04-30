@@ -29,3 +29,14 @@
     padding-left: 24px;
     font-weight: normal;
 }
+
+.saved {
+    color: red !important;
+
+}
+
+.notSaved {
+
+    color: inherit;
+
+}

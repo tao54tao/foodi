@@ -43,7 +43,7 @@ class RecipeSearch extends Component {
         this.setState({hideSearch: false});
     }
      
-    render() {
+    render() {      
         var resultsClass = this.state.hideResults ? 
         "hide fullWidth" : "nohide fullWidth";
 
@@ -70,7 +70,13 @@ class RecipeSearch extends Component {
         </Grid>
 
         <Grid item className={resultsClass}  >
-            <ResultsGridList data={this.state.data} hideSearch={this.hideSearch} showSearch={this.showSearch}/>
+            <ResultsGridList 
+            data={this.state.data} 
+            hideSearch={this.hideSearch} 
+            showSearch={this.showSearch}
+            addRecipe={this.props.addRecipe}
+            removeRecipe={this.props.removeRecipe}
+            savedRecipes={this.props.savedRecipes}/>
         </Grid>
 
         </Grid>

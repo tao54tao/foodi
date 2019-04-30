@@ -118,14 +118,28 @@ class ResultsGridList extends React.Component {
 
     else {
       let selectedIndex = this.props.data.findIndex(x => x.recipe.uri === this.state.selectedRecipe);
+      let isSaved = false;
+      let savedIndex = this.props.savedRecipes.findIndex(item => {
+        return item.recipe.uri === this.props.data[selectedIndex].recipe.uri
+      }
+      );
+      if (savedIndex > -1) {
+        isSaved= true;
+      };
      
       
       
       content = (
         
-        <RecipeCard recipe={this.props.data[selectedIndex].recipe} close={this.handleCardClose}/>
+        <RecipeCard 
+        recipe={this.props.data[selectedIndex].recipe} 
+        close={this.handleCardClose}
+        addRecipe={this.props.addRecipe}
+        removeRecipe={this.props.removeRecipe}
+        savedRecipes={this.props.savedRecipes}
+        isSaved={isSaved}
+        savedIndex={savedIndex}/>
 
-        
       )
     };
   

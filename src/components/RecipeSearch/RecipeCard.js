@@ -51,11 +51,36 @@ const styles = theme => ({
 });
 
 class RecipeReviewCard extends React.Component {
-  state = { expanded: false };
+  constructor(props) {
+    super(props);
+    this.state = { 
+      expanded: false,
+      };
+    }
+
+ 
 
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
+
+  handleSave = () => {
+    if (this.props.isSaved) {
+      let index = this.props.savedIndex;
+      this.props.removeRecipe({index});
+
+    }
+
+    else {
+      this.props.addRecipe(this.props.recipe);
+
+    }
+
+
+  }
+
+
+
 
   render() {
     const { classes } = this.props;
@@ -90,6 +115,11 @@ class RecipeReviewCard extends React.Component {
       
     });
 
+    let savedClass = this.props.isSaved ?
+    "saved" : "notSaved";
+
+
+
 
     return (
       <Card className={classes.card}>
@@ -97,7 +127,7 @@ class RecipeReviewCard extends React.Component {
       
           action={
             <IconButton onClick={this.props.close}>
-              <i class="material-icons">
+              <i className="material-icons">
             close
             </i>
             </IconButton>
@@ -117,7 +147,7 @@ class RecipeReviewCard extends React.Component {
           <IngredientList items={this.props.recipe.ingredientLines}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Add to favorites">
+          <IconButton aria-label="Add to favorites" onClick={this.handleSave} className={savedClass}>
             <FavoriteIcon />
           </IconButton>
           <IconButton aria-label="Share">
