@@ -36,7 +36,7 @@ class DrawerNav extends React.Component {
       <div className={classes.list}>
         <List>
           {[{text: 'Home', icon: 'home', path: '/'},
-            {text: 'Shopping List', icon: 'shopping_cart', path: '/Shopping'},
+            {text: 'Shopping Lists', icon: 'shopping_cart', path: '/Shopping'},
             {text: 'Recipe Search', icon: 'search', path: '/RecipeSearch'},
             {text: 'Saved Recipes', icon: 'list', path: '/SavedRecipes'},
             {text: 'Settings', icon: 'settings', path: '/Settings'}].map((link, index) => (

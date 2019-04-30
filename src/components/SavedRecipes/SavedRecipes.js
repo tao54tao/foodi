@@ -25,6 +25,10 @@ const styles = theme => ({
     
   },
 
+  recipeCards: {
+    marginTop: 24,
+  }
+
 
 });
 
@@ -33,7 +37,7 @@ class SavedRecipes extends React.Component {
   state = {
     delAlertOpen: false,
     listKey: '',
-    recipeTitle: '',
+    
   };
 
   handleDelBtn = (listkey) => {
@@ -56,6 +60,7 @@ class SavedRecipes extends React.Component {
 
     
     render() {
+      
       const { classes } = this.props;
       let RecipeListArray = null;
 
@@ -82,7 +87,8 @@ class SavedRecipes extends React.Component {
             closeIcon='delete'
             savedRecipes={this.props.savedRecipes}
             isSaved={true}
-            savedIndex={index}/>
+            savedIndex={index}
+            />
 
           
           ); 

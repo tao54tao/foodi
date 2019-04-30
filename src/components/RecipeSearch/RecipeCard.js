@@ -29,6 +29,7 @@ const styles = theme => ({
   card: {
     maxWidth: 400,
     flexGrow: 1,
+    marginTop: theme.spacing.unit * 2,
   },
   media: {
     height: 0,

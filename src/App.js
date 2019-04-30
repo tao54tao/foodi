@@ -10,6 +10,7 @@ import RecipeSearch from './components/RecipeSearch/RecipeSearch';
 import SavedRecipes from './components/SavedRecipes/SavedRecipes';
 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,8 @@ class App extends Component {
       "beforeunload",
       this.saveStateToLocalStorage.bind(this)
     );
+
+    
   }
 
   componentWillUnmount() {
@@ -141,8 +144,10 @@ class App extends Component {
 
 
   setSampleData = () => {
+
+
     
-    var ListName1 = "Trader Joes";
+     var ListName1 = "Trader Joes";
     var ItemList1 = [];
     ItemList1.push({name: "milk", quantity: 1, type: "gal", done: false});
     ItemList1.push({name: "cheese", quantity: 2, type: "cup", done: true});
