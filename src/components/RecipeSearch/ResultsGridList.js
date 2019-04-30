@@ -34,6 +34,9 @@ const styles = theme => ({
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
+  allignRight: {
+    textAlign: 'right',
+  },
 
 
 });
@@ -111,6 +114,11 @@ class ResultsGridList extends React.Component {
         <ListSubheader component="div">Search Results...</ListSubheader>
         </GridListTile>
         {results}
+        <GridListTile key="Subheader" cols={columns} style={{ height: 'auto' }}>
+        <ListSubheader component="div" className={classes.allignRight}><div id="edamam-badge" data-color="white"></div>
+
+        </ListSubheader>
+        </GridListTile>
       </GridList>
       </Paper>
 
