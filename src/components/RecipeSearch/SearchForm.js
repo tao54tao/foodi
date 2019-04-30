@@ -41,7 +41,7 @@ class SearchForm extends Component {
         this.state = {
             searchTerms: '',
             hideResults: true,
-            
+            searchFieldInputRef: '',
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.handleSearchTermsChange = this.handleSearchTermsChange.bind(this);
@@ -59,7 +59,7 @@ class SearchForm extends Component {
       
       if(newSearchTerms) {
         this.props.searchDB(newSearchTerms);
-        window.focus();
+        this.state.searchFieldInputRef.blur();
                
       }
     }
@@ -92,6 +92,7 @@ class SearchForm extends Component {
           }}
           value={this.state.searchTerms}
           onChange={this.handleSearchTermsChange}
+          inputRef={el => this.setState({searchFieldInputRef: el})}
         />
         
         </Grid>
