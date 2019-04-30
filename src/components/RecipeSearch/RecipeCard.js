@@ -21,6 +21,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Divider from '@material-ui/core/Divider';
 import IngredientList from './IngredientList';
+import { Grid } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import './RecipeCard.css'
 
 const styles = theme => ({
@@ -115,6 +117,17 @@ class RecipeReviewCard extends React.Component {
       
     });
 
+    let dietLabels = <Grid item><Typography variant='subtitle1'>none</Typography></Grid>;
+    
+
+    if (this.props.recipe.dietLabels !== undefined) {
+      dietLabels = this.props.recipe.dietLabels.map(name => {
+        return <Grid item><Typography variant='subtitle1'>{name}</Typography></Grid>
+      });
+
+    }
+    
+
     let savedClass = this.props.isSaved ?
     "saved" : "notSaved";
 
@@ -141,18 +154,30 @@ class RecipeReviewCard extends React.Component {
           title={this.props.recipe.label}
         />
         <CardContent>
-          <Typography component="p">
-            Servings: {this.props.recipe.yield} 
-          </Typography>
+          <Grid container
+          direction="row"
+          justify="space-between"
+          alignItems="flex-start">
+            <Grid item><Typography variant='subtitle1'>{this.props.recipe.yield} Servings</Typography></Grid>
+            <Grid item><Typography variant='subtitle1'>{Math.round(this.props.recipe.calories / this.props.recipe.yield)} Calories per Serving</Typography></Grid>
+            </Grid>
+            <Typography variant="subtitle2" className='topPadding'>Diet Categories</Typography>
+        <Divider />
+            <Grid container
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start">
+            {dietLabels}
+            </Grid>
           <IngredientList items={this.props.recipe.ingredientLines}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <IconButton aria-label="Add to favorites" onClick={this.handleSave} className={savedClass}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="Share">
-            <ShareIcon />
-          </IconButton>
+          <Button label="Full Recipe" onClick={() => {window.open(this.props.recipe.url,'_blank')}}>
+            Full Recipe
+          </Button>
           <IconButton
             className={classnames(classes.expand, {
               [classes.expandOpen]: this.state.expanded,
@@ -169,7 +194,7 @@ class RecipeReviewCard extends React.Component {
             <Typography variant="h4">Nutrition Facts</Typography>
             <Divider  />
             <Typography variant='subtitle2'>Amount Per Serving</Typography>
-            <Typography variant='subtitle1'>Calories {Math.round(this.props.recipe.totalNutrients.ENERC_KCAL.quantity / this.props.recipe.yield)}</Typography>
+            <Typography variant='subtitle1'>Calories {Math.round(this.props.recipe.calories / this.props.recipe.yield)}</Typography>
             <Divider  />
             <Table className='nutrientFacts'>
               
