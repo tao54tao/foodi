@@ -120,7 +120,7 @@ class RecipeReviewCard extends React.Component {
     let dietLabels = <Grid item><Typography variant='subtitle1'>none</Typography></Grid>;
     
 
-    if (this.props.recipe.dietLabels !== undefined) {
+    if (this.props.recipe.dietLabels.length > 0) {
       dietLabels = this.props.recipe.dietLabels.map(name => {
         return <Grid item><Typography variant='subtitle1'>{name}</Typography></Grid>
       });
