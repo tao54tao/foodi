@@ -93,6 +93,7 @@ class SearchForm extends Component {
           value={this.state.searchTerms}
           onChange={this.handleSearchTermsChange}
           inputRef={el => this.setState({searchFieldInputRef: el})}
+          onFocus={this.props.hideResults}
         />
         
         </Grid>

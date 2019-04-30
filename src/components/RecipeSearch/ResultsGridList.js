@@ -54,11 +54,14 @@ class ResultsGridList extends React.Component {
 
   handleClick = (recipe) => { 
     this.setState({selectedRecipe: recipe});
+    this.props.hideSearch();
   }
 
   handleCardClose = () =>
   {
     this.setState({selectedRecipe: ''});
+    this.props.showSearch();
+    
   }
 
 
@@ -89,11 +92,7 @@ class ResultsGridList extends React.Component {
             <GridListTileBar
               title={result.recipe.label}
               subtitle={<span>{result.recipe.source}</span>}
-              // actionIcon={
-              //  <IconButton className={classes.icon} >
-              //    <InfoIcon />
-              //  </IconButton>
-              // }
+
             />
           </GridListTile>
    

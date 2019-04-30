@@ -20,6 +20,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Divider from '@material-ui/core/Divider';
+import IngredientList from './IngredientList';
 import './RecipeCard.css'
 
 const styles = theme => ({
@@ -113,6 +114,7 @@ class RecipeReviewCard extends React.Component {
           <Typography component="p">
             Servings: {this.props.recipe.yield} 
           </Typography>
+          <IngredientList items={this.props.recipe.ingredientLines}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
           <IconButton aria-label="Add to favorites">
