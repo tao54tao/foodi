@@ -9,6 +9,7 @@ import withWidth from '@material-ui/core/withWidth';
 import { Typography } from '@material-ui/core';
 import { Paper } from 'material-ui';
 import RecipeCard from './RecipeCard';
+import edamamLogo from './edamamLogo.png';
 
 
 const styles = theme => ({
@@ -115,8 +116,8 @@ class ResultsGridList extends React.Component {
         </GridListTile>
         {results}
         <GridListTile key="Subheader" cols={columns} style={{ height: 'auto' }}>
-        <ListSubheader component="div" className={classes.allignRight}><div id="edamam-badge"></div>
-
+        <ListSubheader component="div" className={classes.allignRight}>
+        <img src={edamamLogo} alt="Edamam Logo" />
         </ListSubheader>
         </GridListTile>
       </GridList>
