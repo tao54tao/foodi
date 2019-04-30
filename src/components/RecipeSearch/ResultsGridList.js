@@ -115,7 +115,7 @@ class ResultsGridList extends React.Component {
         </GridListTile>
         {results}
         <GridListTile key="Subheader" cols={columns} style={{ height: 'auto' }}>
-        <ListSubheader component="div" className={classes.allignRight}><div id="edamam-badge" data-color="white"></div>
+        <ListSubheader component="div" className={classes.allignRight}><div id="edamam-badge"></div>
 
         </ListSubheader>
         </GridListTile>
