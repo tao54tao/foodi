@@ -17,7 +17,7 @@ class IngredientList extends React.Component {
       });
       return (
         <div>
-        <Typography variant="subtitle2" className='topPadding'>Ingredient List</Typography>
+        <Typography variant="h6" className='extratopPadding'>Ingredient List</Typography>
         <Divider />
         
         <List dense>

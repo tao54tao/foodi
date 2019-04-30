@@ -39,7 +39,6 @@ const styles = theme => ({
   },
   expand: {
     transform: 'rotate(0deg)',
-    marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
@@ -50,6 +49,9 @@ const styles = theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  dietList: {
+    paddingBottom: '0px !important',
+  }
 });
 
 class RecipeReviewCard extends React.Component {
@@ -86,7 +88,7 @@ class RecipeReviewCard extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const NutrientList = [
+    const nutritionList = [
       {name:'Total Fat', code:'FAT'},
       {name:'Saturated Fat', code:'FASAT'},
       {name:'Trans Fat', code:'FATRN'},
@@ -98,7 +100,7 @@ class RecipeReviewCard extends React.Component {
       {name:'Protein', code:'PROCNT'},
     ];
 
-    const NutrientFacts = NutrientList.map(row => {
+    const nutritionFacts = nutritionList.map(row => {
       let totalNutrients = this.props.recipe.totalNutrients[row.code];
       if (totalNutrients === undefined) {
         totalNutrients = {quantity: 0}
@@ -117,15 +119,31 @@ class RecipeReviewCard extends React.Component {
       
     });
 
-    let dietLabels = <Grid item><Typography variant='subtitle1'>none</Typography></Grid>;
+    let dietLabels = '';
     
 
     if (this.props.recipe.dietLabels.length > 0) {
       dietLabels = this.props.recipe.dietLabels.map(name => {
-        return <Grid item><Typography variant='subtitle1'>{name}</Typography></Grid>
+        return <Grid item className={classes.dietList}><Typography variant='subtitle1' >{name}</Typography></Grid>
       });
 
     }
+
+    let healthLabels = '';
+
+    if (this.props.recipe.healthLabels.length > 0) {
+    healthLabels = this.props.recipe.healthLabels.map(name => {
+      return <Grid item className={classes.dietList}><Typography variant='subtitle1'>{name}</Typography></Grid>
+
+      });
+    }
+
+    let noneMessage = '';
+    if (dietLabels.length > 1 & healthLabels.length > 1) {
+      noneMessage= <Grid item className={classes.dietList}><Typography variant='subtitle1'>no diet or health categories found</Typography></Grid>
+    }
+
+   
     
 
     let savedClass = this.props.isSaved ?
@@ -139,11 +157,16 @@ class RecipeReviewCard extends React.Component {
         <CardHeader
       
           action={
+            <div>
+            <IconButton aria-label="Add to favorites" onClick={this.handleSave} className={savedClass}>
+            <FavoriteIcon />
+          </IconButton>
             <IconButton onClick={this.props.close}>
               <i className="material-icons">
             close
             </i>
             </IconButton>
+            </div>
           }
           title={this.props.recipe.label}
           subheader={this.props.recipe.source}
@@ -161,23 +184,28 @@ class RecipeReviewCard extends React.Component {
             <Grid item><Typography variant='subtitle1'>{this.props.recipe.yield} Servings</Typography></Grid>
             <Grid item><Typography variant='subtitle1'>{Math.round(this.props.recipe.calories / this.props.recipe.yield)} Calories per Serving</Typography></Grid>
             </Grid>
-            <Typography variant="subtitle2" className='topPadding'>Diet Categories</Typography>
+            <Typography variant="h6" className='topPadding'>Diet & Health Categories</Typography>
         <Divider />
             <Grid container
           direction="row"
           justify="flex-start"
-          alignItems="flex-start">
+          alignItems="flex-start"
+          spacing={16}>
+            {noneMessage}
             {dietLabels}
+            {healthLabels}
             </Grid>
           <IngredientList items={this.props.recipe.ingredientLines}/>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Add to favorites" onClick={this.handleSave} className={savedClass}>
-            <FavoriteIcon />
-          </IconButton>
-          <Button label="Full Recipe" onClick={() => {window.open(this.props.recipe.url,'_blank')}}>
+          
+          <Button className="recipeButton" label="Full Recipe" color="primary" onClick={() => {window.open(this.props.recipe.url,'_blank')}}>
             Full Recipe
           </Button>
+          <Button className="alignRight" label="Nutrition Facts" onClick={this.handleExpandClick}>
+            Nutrition Facts
+          </Button>
+          
           <IconButton
             className={classnames(classes.expand, {
               [classes.expandOpen]: this.state.expanded,
@@ -191,12 +219,12 @@ class RecipeReviewCard extends React.Component {
         </CardActions>
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography variant="h4">Nutrition Facts</Typography>
+            <Typography variant="h4" >Nutrition Facts</Typography>
             <Divider  />
             <Typography variant='subtitle2'>Amount Per Serving</Typography>
             <Typography variant='subtitle1'>Calories {Math.round(this.props.recipe.calories / this.props.recipe.yield)}</Typography>
             <Divider  />
-            <Table className='nutrientFacts'>
+            <Table className='nutritionFacts'>
               
              
               
@@ -204,7 +232,7 @@ class RecipeReviewCard extends React.Component {
               <TableRow>
                   <TableCell colspan={2} align="right">% Daily Values</TableCell>
               </TableRow>
-               {NutrientFacts.map(row => (
+               {nutritionFacts.map(row => (
                   <TableRow>
                     <TableCell>
                     {row.name} {row.quantity}{row.unit}

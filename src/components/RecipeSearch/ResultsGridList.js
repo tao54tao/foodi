@@ -55,6 +55,7 @@ class ResultsGridList extends React.Component {
   handleClick = (recipe) => { 
     this.setState({selectedRecipe: recipe});
     this.props.hideSearch();
+    window.scrollTo(0, 0);
   }
 
   handleCardClose = () =>

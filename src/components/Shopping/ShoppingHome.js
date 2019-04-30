@@ -24,15 +24,6 @@ const styles = theme => ({
     
   },
 
-  FullWidth : {
-    width: '100%',
-  },
-
-
-
-  
-
-
 
 });
 

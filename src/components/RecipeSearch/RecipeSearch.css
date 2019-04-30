@@ -20,3 +20,7 @@
 .fullWidth {
   width: 100%;
 }
+
+.recipeButton {
+  margin-left: 16px !important;
+}
