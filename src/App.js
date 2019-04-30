@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import ShoppingHome from './components/Shopping/ShoppingHome';
 import Settings from "./components/Settings/Settings";
 import RecipeSearch from './components/RecipeSearch/RecipeSearch';
+import SavedRecipes from './components/SavedRecipes/SavedRecipes';
 
 
 class App extends Component {
@@ -163,7 +164,7 @@ class App extends Component {
       var savedRecipes = this.state.savedRecipes;
       savedRecipes.push({recipe});
       this.setState({savedRecipes: savedRecipes}); 
-      console.log({savedRecipes});
+      
 
     }
 
@@ -171,7 +172,7 @@ class App extends Component {
       var savedRecipes = this.state.savedRecipes;
       savedRecipes.splice(recipeKey, 1);
       this.setState({savedRecipes: savedRecipes});
-      console.log({savedRecipes});
+      
     }
 
 
@@ -198,6 +199,14 @@ class App extends Component {
         <Route path='/RecipeSearch' 
         render={(props) => <RecipeSearch {...props} 
         addRecipe={this.addRecipe}
+        removeRecipe={this.removeRecipe}
+        savedRecipes={this.state.savedRecipes}
+        
+        />}
+        />
+        <Route path='/SavedRecipes' 
+        render={(props) => <SavedRecipes {...props} 
+        
         removeRecipe={this.removeRecipe}
         savedRecipes={this.state.savedRecipes}
         

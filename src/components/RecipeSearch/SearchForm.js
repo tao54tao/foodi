@@ -98,7 +98,7 @@ class SearchForm extends Component {
         if (this.state.peanutFreeChecked) {
           newSearchTerms = newSearchTerms+"&health=peanut-free";
         }
-        console.log(newSearchTerms);
+        
         this.props.searchDB(newSearchTerms);
         this.state.searchFieldInputRef.blur();
                

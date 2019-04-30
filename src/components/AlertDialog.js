@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-class ListDelAlertDialog extends React.Component {
+class AlertDialog extends React.Component {
 
   handleCancel = () => {
     this.props.handleClose();
@@ -28,17 +28,18 @@ class ListDelAlertDialog extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Confirm Delete"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{this.props.alertTitle}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-          This will delete the list.  Are you sure? </DialogContentText>
+            {this.props.alertText}
+            </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleCancel} color="primary">
-              Cancel
+              {this.props.closeBtnText}
             </Button>
             <Button onClick={this.handleConfirm} color="secondary" autoFocus>
-              Delete
+              {this.props.confirmBtnText}
             </Button>
           </DialogActions>
         </Dialog>
@@ -47,4 +48,4 @@ class ListDelAlertDialog extends React.Component {
   }
 }
 
-export default ListDelAlertDialog;
+export default AlertDialog;

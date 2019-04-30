@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import IconButton from '@material-ui/core/IconButton';
 import { withStyles } from '@material-ui/core/styles';
-import ListDelAlertDialog from './ListDelAlertDialog';
+import AlertDialog from '../AlertDialog';
 
 
 
@@ -71,10 +71,14 @@ class ListMenu extends React.Component {
     return (
       <div className={classes.ListMenu}>
         <div>
-        <ListDelAlertDialog 
+        <AlertDialog 
         open={this.state.delAlertOpen} 
         handleClose={this.handleDelAlertClose} 
-        handleConfirm={this.handleDelConfirm} />
+        handleConfirm={this.handleDelConfirm}
+        alertTitle="Confirm Delete"
+        alertText="This will delete the list.  Are you sure?" 
+        closeBtnText="cancel"
+        confirmBtnText="delete" />
         
         <IconButton 
         className={classes.MenuButton} 

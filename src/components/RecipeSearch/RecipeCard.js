@@ -83,6 +83,12 @@ class RecipeReviewCard extends React.Component {
 
   }
 
+  handleClose = () => {
+    let index = this.props.savedIndex;
+    this.props.close({index});
+
+  }
+
 
 
 
@@ -145,9 +151,14 @@ class RecipeReviewCard extends React.Component {
 
    
     
+    let savedClass = "hide";
 
-    let savedClass = this.props.isSaved ?
+    if (this.props.addRecipe !== undefined) {
+      savedClass = this.props.isSaved ?
     "saved" : "notSaved";
+
+    }
+    
 
 
 
@@ -161,9 +172,9 @@ class RecipeReviewCard extends React.Component {
             <IconButton aria-label="Add to favorites" onClick={this.handleSave} className={savedClass}>
             <FavoriteIcon />
           </IconButton>
-            <IconButton onClick={this.props.close}>
+            <IconButton onClick={this.handleClose}>
               <i className="material-icons">
-            close
+            {this.props.closeIcon}
             </i>
             </IconButton>
             </div>

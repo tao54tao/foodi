@@ -135,6 +135,7 @@ class ResultsGridList extends React.Component {
         <RecipeCard 
         recipe={this.props.data[selectedIndex].recipe} 
         close={this.handleCardClose}
+        closeIcon='close'
         addRecipe={this.props.addRecipe}
         removeRecipe={this.props.removeRecipe}
         savedRecipes={this.props.savedRecipes}
