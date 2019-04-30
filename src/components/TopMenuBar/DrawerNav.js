@@ -9,11 +9,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { NavLink } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import './DrawerNav.css';
 
 const styles = {
   list: {
     width: 250,
   },
+  topGraphic: {
+    textAlign: 'center',
+
+  }
   
 };
 
@@ -34,6 +41,17 @@ class DrawerNav extends React.Component {
 
     const sideList = (
       <div className={classes.list}>
+      <div className={classes.topGraphic}>
+      <Grid container direction="column">
+      <Grid item>
+      <i class="material-icons topIcon">
+      local_dining
+      </i>
+      </Grid>
+      <Grid item>Foodi</Grid>
+      </Grid>
+      <Divider />
+      </div>
         <List>
           {[{text: 'Home', icon: 'home', path: '/'},
             {text: 'Shopping Lists', icon: 'shopping_cart', path: '/Shopping'},
