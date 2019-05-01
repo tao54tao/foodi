@@ -1,9 +1,9 @@
 {
-  "main.css": "/foodi/static/css/main.d4f1f815.chunk.css",
-  "main.js": "/foodi/static/js/main.9fe11851.chunk.js",
+  "main.css": "/foodi/static/css/main.57b24190.chunk.css",
+  "main.js": "/foodi/static/js/main.0b31f81b.chunk.js",
   "runtime~main.js": "/foodi/static/js/runtime~main.a24f2772.js",
-  "static/js/2.eaf2a13a.chunk.js": "/foodi/static/js/2.eaf2a13a.chunk.js",
+  "static/js/2.b63b713f.chunk.js": "/foodi/static/js/2.b63b713f.chunk.js",
   "index.html": "/foodi/index.html",
-  "precache-manifest.08cd664edbdd2ddff9df58a3fea6a245.js": "/foodi/precache-manifest.08cd664edbdd2ddff9df58a3fea6a245.js",
+  "precache-manifest.d7a6286012daaa92876c8b0cf67b8e8c.js": "/foodi/precache-manifest.d7a6286012daaa92876c8b0cf67b8e8c.js",
   "service-worker.js": "/foodi/service-worker.js"
 }
