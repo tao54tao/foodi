@@ -22,13 +22,7 @@ const styles = theme => ({
     minWidth: 0,
     textAlign: 'center',
   
-    
   },
-
-  recipeCards: {
-    marginTop: 24,
-  }
-
 
 });
 

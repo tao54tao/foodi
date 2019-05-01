@@ -24,6 +24,12 @@ const styles = theme => ({
     
   },
 
+  
+  listContainer: {
+    marginTop: 0,
+
+  },
+
 
 });
 
@@ -76,11 +82,13 @@ class ShoppingHome extends React.Component {
         <div>
         <TopMenuBar title="Foodi - Shopping Lists" addButton={this.props.listAdd} />
         <div className="ShoppingWindow">
-        <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16}>
-
+        <div className={classes.listContainer}>
+        <Grid container direction='row' justify='space-evenly' alignItems='flex-start' spacing={16} className={classes.listContainer}>
+        
         {ShoppingListArray}
         
         </Grid>
+        </div>
         </div>
         </div>
         

@@ -4,6 +4,18 @@ import './RecipeSearch.css'
 import SearchForm from './SearchForm';
 import Grid from '@material-ui/core/Grid';
 import ResultsGridList from './ResultsGridList';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+
+    searchWrap: {
+        marginTop: theme.spacing.unit,
+     
+    },
+
+  });
+
+  
 
 
 class RecipeSearch extends Component {
@@ -43,7 +55,10 @@ class RecipeSearch extends Component {
         this.setState({hideSearch: false});
     }
      
-    render() {      
+    render() {   
+        
+        const { classes } = this.props;
+
         var resultsClass = this.state.hideResults ? 
         "hide fullWidth" : "nohide fullWidth";
 
@@ -56,7 +71,7 @@ class RecipeSearch extends Component {
         <div>
         <TopMenuBar title="Foodi - Recipe Search" />
         <div className="MainWindow">
-        
+        <div className={classes.searchWrap}>
         <Grid
         container
         direction="column"
@@ -80,6 +95,7 @@ class RecipeSearch extends Component {
         </Grid>
 
         </Grid>
+        </div>
         
         </div>
         </div>
@@ -88,4 +104,4 @@ class RecipeSearch extends Component {
     }
   }
   
-  export default RecipeSearch;
+  export default withStyles(styles)(RecipeSearch);

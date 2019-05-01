@@ -19,6 +19,7 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginTop: theme.spacing.unit * 2,
     
   },
 
@@ -27,12 +28,12 @@ const styles = theme => ({
   },
 
   card: {
-    maxWidth: 400,
+    maxWidth: 380,
     
   },
 
   menuCards: {
-    marginTop: theme.spacing.unit * 2,
+    
   }
 });
 

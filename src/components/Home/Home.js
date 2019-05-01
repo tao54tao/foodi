@@ -15,9 +15,10 @@ import { NavLink } from 'react-router-dom';
 const styles = theme => ({
 
   paper: {
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 4,
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    marginTop: theme.spacing.unit,
     
   },
 
@@ -26,7 +27,7 @@ const styles = theme => ({
   },
 
   card: {
-    maxWidth: 400,
+    maxWidth: 380,
     
   },
 
@@ -46,9 +47,9 @@ class Home extends React.Component {
         <TopMenuBar title="Foodi" />
         <div className="HomeWindow">
         
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper}>       
           <Typography variant='h4' align='center'>Welcome to Foodi</Typography>
-          <Grid container spacing={16} direction="row" justify="center" alignItems="flex-start" className={classes.menuCards}>
+          <Grid container spacing={24} direction="row" justify="center" alignItems="flex-start" className={classes.menuCards}>
             <Grid item className={classes.menuItem}>
             <Card className={classes.card}>
             <CardActionArea component={NavLink} to='/Shopping' >

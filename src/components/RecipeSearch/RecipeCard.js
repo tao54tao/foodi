@@ -27,7 +27,7 @@ import './RecipeCard.css'
 
 const styles = theme => ({
   card: {
-    maxWidth: 400,
+    maxWidth: 460,
     flexGrow: 1,
     marginTop: theme.spacing.unit * 2,
   },

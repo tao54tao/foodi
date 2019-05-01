@@ -20,7 +20,13 @@ const styles = {
   topGraphic: {
     textAlign: 'center',
 
-  }
+  }, 
+  menuActive: {
+    backgroundColor: 'rgba(0, 0, 0, 0.08)',
+
+  },
+
+  
   
 };
 
@@ -58,7 +64,7 @@ class DrawerNav extends React.Component {
             {text: 'Recipe Search', icon: 'search', path: '/RecipeSearch'},
             {text: 'Saved Recipes', icon: 'list', path: '/SavedRecipes'},
             {text: 'Settings', icon: 'settings', path: '/Settings'}].map((link, index) => (
-              <ListItem button key={link.text} component={NavLink} to={link.path}>
+              <ListItem button key={link.text} component={NavLink} to={link.path} exact={true}activeClassName={classes.menuActive}>
                 <ListItemIcon><i className="material-icons">{link.icon}</i></ListItemIcon>
                 <ListItemText primary={link.text} />
               </ListItem>
