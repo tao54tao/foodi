@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/foodi/static/js/runtime~main.a24f2772.js"
   },
   {
-    "revision": "9887f2d4a9308e0ca4fc",
+    "revision": "4d2a343e9550195cfff2",
     "url": "/foodi/static/js/main.9fe11851.chunk.js"
   },
   {
@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/foodi/static/js/2.eaf2a13a.chunk.js"
   },
   {
-    "revision": "9887f2d4a9308e0ca4fc",
-    "url": "/foodi/static/css/main.8d6d1b8d.chunk.css"
+    "revision": "4d2a343e9550195cfff2",
+    "url": "/foodi/static/css/main.d4f1f815.chunk.css"
   },
   {
-    "revision": "b83989295baffa8984176863cb9b9fa0",
+    "revision": "c07714324d2e9b4dc4d45b1595319d94",
     "url": "/foodi/index.html"
   }
 ];
