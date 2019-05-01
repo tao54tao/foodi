@@ -146,9 +146,10 @@ class RecipeReviewCard extends React.Component {
     }
 
     let noneMessage = '';
-    if (dietLabels.length > 1 & healthLabels.length > 1) {
+    if (dietLabels.length < 1 && healthLabels.length < 1) {
       noneMessage= <Grid item className={classes.dietList}><Typography variant='subtitle1'>no diet or health categories found</Typography></Grid>
     }
+    
 
    
     
