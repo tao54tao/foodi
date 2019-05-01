@@ -5,6 +5,7 @@ import SearchForm from './SearchForm';
 import Grid from '@material-ui/core/Grid';
 import ResultsGridList from './ResultsGridList';
 import { withStyles } from '@material-ui/core/styles';
+import './loading-spinner.css';
 
 const styles = theme => ({
 
@@ -71,7 +72,8 @@ class RecipeSearch extends Component {
         let content= '';
 
         if (this.state.isFetching) {
-            content = <div>Loading...</div>;
+            content = <div className='loader'>Loading...</div>;
+            
         } else {
             content = (
                 <Grid item className={resultsClass}  >
