@@ -33,19 +33,22 @@ class RecipeSearch extends Component {
     }
 
     searchRecipe = (terms) => {
-        this.setState({isFetching: true,});
+        this.setState({isFetching: true,} , () => {
 
-        // fetch the data
-        let baseUrl='https://api.edamam.com/search?app_id=9680102e&app_key=65589c702692d0ca9a4ffdd705fb2dcf&to=30&q='
-                
-         fetch(baseUrl + terms)
-         .then(response => response.json())
-         .then(data => this.setState({data: data.hits}));
+                    
+            let baseUrl='https://api.edamam.com/search?app_id=9680102e&app_key=65589c702692d0ca9a4ffdd705fb2dcf&to=30&q='
+            // fetch the data using provided search terms argument               
+            fetch(baseUrl + terms)
+            .then(response => response.json())
+            .then(data => this.setState({
+                data: data.hits,
+                isFetching: false,
+                hideResults: false,
+            }));
+            
 
-       
-        this.setState({isFetching: false,
-                        hideResults: false});
 
+        });
     }
 
     hideSearch = () => {
@@ -64,6 +67,24 @@ class RecipeSearch extends Component {
 
         var searchClass = this.state.hideSearch ?
         "hide fullWidth" : "nohide fullWidth";
+
+        let content= '';
+
+        if (this.state.isFetching) {
+            content = <div>Loading...</div>;
+        } else {
+            content = (
+                <Grid item className={resultsClass}  >
+                <ResultsGridList 
+                data={this.state.data} 
+                hideSearch={this.hideSearch} 
+                showSearch={this.showSearch}
+                addRecipe={this.props.addRecipe}
+                removeRecipe={this.props.removeRecipe}
+                savedRecipes={this.props.savedRecipes}/>
+                </Grid>
+            );
+            }
 
 
       return (
@@ -84,15 +105,7 @@ class RecipeSearch extends Component {
             <SearchForm searchDB={this.searchRecipe} />        
         </Grid>
 
-        <Grid item className={resultsClass}  >
-            <ResultsGridList 
-            data={this.state.data} 
-            hideSearch={this.hideSearch} 
-            showSearch={this.showSearch}
-            addRecipe={this.props.addRecipe}
-            removeRecipe={this.props.removeRecipe}
-            savedRecipes={this.props.savedRecipes}/>
-        </Grid>
+        {content}
 
         </Grid>
         </div>
