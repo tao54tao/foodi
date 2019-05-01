@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+// import material UI components
 import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
@@ -12,19 +14,20 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Divider from '@material-ui/core/Divider';
-import IngredientList from './IngredientList';
 import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+
+// import custom components
+import IngredientList from './IngredientList';
 import './RecipeCard.css'
 
+// set some CSS styles.  if using theme values, must put here and not in external css file
 const styles = theme => ({
   card: {
     maxWidth: 460,
@@ -54,6 +57,26 @@ const styles = theme => ({
     paddingBottom: '0px !important',
   }
 });
+
+// Recipe Review Card Component
+// shows a recipe on a card
+// card has buttons to save recipe, close card
+// card can expand to show nutrition facts from recipe
+// card has button with link to full recipe source
+// takes in the following props
+
+/* 
+recipe= recipe object
+close= function called when closed button is clicked
+closeIcon= type of icon to show for close button
+addRecipe= function to add recipe to saved array in app state
+removeRecipe= function to remove recipe from saved array in app state
+savedRecipes= the saved recipes array from app state
+isSaved= bool value for if the recipe is already in saved list
+savedIndex= index of the item in the saved recipe array/>
+*/
+
+
 
 class RecipeReviewCard extends React.Component {
   constructor(props) {

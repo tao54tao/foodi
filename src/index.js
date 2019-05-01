@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render((
+    // user HashRouter to allow brower back and forward control over main routes
+    // allows direct URL bookmarks of main routes
     <HashRouter>
     <App />
     </HashRouter>
