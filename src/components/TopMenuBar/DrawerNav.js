@@ -13,12 +13,13 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import './DrawerNav.css';
 
-const styles = {
+const styles = theme => ({
   list: {
     width: 250,
   },
   topGraphic: {
     textAlign: 'center',
+    padding: theme.spacing.unit,
 
   }, 
   menuActive: {
@@ -28,7 +29,7 @@ const styles = {
 
   
   
-};
+});
 
 class DrawerNav extends React.Component {
   state = {
@@ -56,8 +57,9 @@ class DrawerNav extends React.Component {
       </Grid>
       <Grid item>Foodi</Grid>
       </Grid>
-      <Divider />
+      
       </div>
+      <Divider />
         <List>
           {[{text: 'Home', icon: 'home', path: '/'},
             {text: 'Shopping Lists', icon: 'shopping_cart', path: '/Shopping'},

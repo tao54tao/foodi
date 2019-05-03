@@ -3,18 +3,11 @@
     min-width: 320px;
     max-width: 1000px;
     margin: auto;
-    
-
-    
 }
 
 .hide  {
     display: none !important;
 
-  }
-
-.nohide  {
-    
   }
 
 .fullWidth {

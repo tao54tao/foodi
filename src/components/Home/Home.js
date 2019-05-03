@@ -10,7 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 
-// import custom components
+// import other react components
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import './Home.css'
 
