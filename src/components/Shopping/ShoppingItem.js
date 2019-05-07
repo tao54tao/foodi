@@ -48,11 +48,15 @@ class ShoppingItem extends React.Component {
       this.onClickDel = this.onClickDel.bind(this);
       this.onClickDone = this.onClickDone.bind(this);
     }
+    // function to handle when delete button is clicked
+    // calls the removeItem function with the listindex and itemIndex from props
     onClickDel() {
       var itemIndex = parseInt(this.props.index);
       var listIndex = parseInt(this.props.listKey);
       this.props.removeItem(listIndex,itemIndex);
     }
+    // function to handle when done button is clicked
+    // calls the markItemDone function with the listindex and itemIndex from props
     onClickDone() {
       var itemIndex = parseInt(this.props.index);
       var listIndex = parseInt(this.props.listKey);
@@ -60,9 +64,10 @@ class ShoppingItem extends React.Component {
     }
     render () {
       const { classes } = this.props;
+      // set the DoneClass to done if the prop item.done is true
       var DoneClass = this.props.item.done ? 
           "done" : "undone";
-
+      // set the checkBoxIcon var to a different icon depending on item.done state
       let checkBoxIcon = this.props.item.done ?
           <i className="material-icons" >
           check_box
@@ -75,25 +80,28 @@ class ShoppingItem extends React.Component {
       return(
           <div className={DoneClass}>
           <ListItem className={classes.itemRow}>
+          {/* return the row container of all the item properties and buttons */}
           <Grid container direction="row" alignItems="center" wrap="nowrap">
-          <Grid item className={classes.itemName}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.name}</Typography></Grid>
-          <Grid item className={classes.itemQuantity}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.quantity}</Typography></Grid>
-          <Grid item className={classes.itemType}><Typography variant="subheading" color="inherit" >{this.props.item.type}</Typography></Grid>
-          <Grid item><IconButton onClick={this.onClickDone} color="inherit" >
-          
-          {checkBoxIcon}
-          </IconButton></Grid>
+            <Grid item className={classes.itemName}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.name}</Typography></Grid>
+            <Grid item className={classes.itemQuantity}><Typography variant="subheading" color="inherit" className={classes.noWrap}>{this.props.item.quantity}</Typography></Grid>
+            <Grid item className={classes.itemType}><Typography variant="subheading" color="inherit" >{this.props.item.type}</Typography></Grid>
+            <Grid item>
+              <IconButton onClick={this.onClickDone} color="inherit" >
+              {checkBoxIcon}
+              </IconButton>
+            </Grid>
 
-          <Grid item><IconButton onClick={this.onClickDel} >
-          <i className="material-icons" >
-          delete
-          </i>
-          </IconButton></Grid>
+            <Grid item>
+              <IconButton onClick={this.onClickDel} >
+              <i className="material-icons" >
+              delete
+              </i>
+              </IconButton>
+            </Grid>
           </Grid>
           </ListItem>
           </div>
-  
-  
+
       );
     }
   }
