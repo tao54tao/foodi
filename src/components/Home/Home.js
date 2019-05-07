@@ -10,7 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 
-// import other react components
+// import other components
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import './Home.css'
 
@@ -38,6 +38,7 @@ const styles = theme => ({
 });
 
 // Homepage component - no props and no state
+// shows a grid of buttons for the main react routes
 class Home extends React.Component {
   
     render() {

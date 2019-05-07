@@ -11,13 +11,13 @@ import withWidth from '@material-ui/core/withWidth';
 import { Typography } from '@material-ui/core';
 import { Paper } from 'material-ui';
 
-// import other react components
+// import other components
 import RecipeCard from './RecipeCard';
 
 // import logo for edamam to show source of API
 import edamamLogo from './edamamLogo.png';
 
-
+// set some CSS styles.  if using theme values, must put here and not in external css file
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -41,6 +41,20 @@ const styles = theme => ({
     textAlign: 'right',
   },
 });
+
+// ResultsGridList component
+// returns a list of results or a single recipe card
+// if result is clicked, stores selected recipe in state
+// takes in data and savedRecipes as props
+// takes in the folliwng functions as props
+
+/* 
+hideSearch= function to hide the search form
+showSearch= function to show the search form
+addRecipe= function to add recipe to saved list
+removeRecipe= function to remove recipe from saved list */
+
+
 
 class ResultsGridList extends React.Component {
   constructor (props) {

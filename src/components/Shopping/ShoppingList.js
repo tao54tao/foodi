@@ -122,11 +122,21 @@ class ShoppingList extends React.Component {
             </div> 
             </Grid>
             <Grid item>
-            <ListMenu listDel={this.props.listDel} listKey={this.props.index} listName={this.props.ListName} listNameEdit={this.listNameEdit}/>
+            <ListMenu 
+              listDel={this.props.listDel} 
+              listKey={this.props.index} 
+              listName={this.props.ListName} 
+              listNameEdit={this.listNameEdit}
+            />
             </Grid>
           </Grid>
           </Grid>
-          <ItemList listKey={this.props.index} items={this.props.ItemList} removeItem={this.props.itemDel} markItemDone={this.props.itemDone}/>
+          <ItemList 
+            listKey={this.props.index} 
+            items={this.props.ItemList} 
+            removeItem={this.props.itemDel} 
+            markItemDone={this.props.itemDone}
+          />
           <AddItemForm listKey={this.props.index} addItem={this.props.itemAdd} />
         </Grid>
         </Paper>

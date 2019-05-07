@@ -1,44 +1,47 @@
 import React from 'react';
+
+// import material UI components
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import IconButton from '@material-ui/core/IconButton';
 import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
+// set some CSS styles.  if using theme values, must put here and not in external css file
 const styles = theme => ({
   itemRow: {
     paddingTop: 0,
     paddingBottom: 0,
   },
-
   itemName: {
     flexGrow: 1,
     minWidth: 0,
   },
-
   noWrap: {
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
   },
-
   itemQuantity: {
     width: 40,
     paddingLeft: 0,
     paddingRight: theme.spacing.unit,
     textAlign: 'right',    
   },
-
   itemType: {
     width: 40,
     padding: 0,
     textAlign: 'left',
     paddingRight: theme.spacing.unit,
   },
-
- 
 });
 
+// Shoppingitem component
+// returns a div with a lisitem
+// in the listItem is a grid row of the items name, quantity, type, done, and delete button
+// item shows up with strikethrough and red when marked as done
+// takes in item, index, listKey as props
+// takes in removeItem and markItemDone functions as props
 class ShoppingItem extends React.Component {
     constructor(props) {
       super(props);

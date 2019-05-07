@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
-// import other react components
+// import other components
 import TopMenuBar from '../TopMenuBar/TopMenuBar';
 import SearchForm from './SearchForm';
 import ResultsGridList from './ResultsGridList';
@@ -13,6 +13,7 @@ import ResultsGridList from './ResultsGridList';
 import './RecipeSearch.css'
 import './loading-spinner.css';
 
+// set some CSS styles.  if using theme values, must put here and not in external css file
 const styles = theme => ({
 
     searchWrap: {
@@ -20,6 +21,12 @@ const styles = theme => ({
     },
   });
 
+// RecipeSearch component
+// returns a search field and a list of results
+// takes in savedRecipies as a prop
+// takes in addRecipe and removeRecipe functions as props
+// keeps track of internal state with isFetching, hideResults, and hideSearch
+// stores returned data in state data
 
 class RecipeSearch extends Component {
     constructor(props) {

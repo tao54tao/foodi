@@ -23,7 +23,7 @@ import Divider from '@material-ui/core/Divider';
 import { Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
-// import other react components
+// import other components
 import IngredientList from './IngredientList';
 import './RecipeCard.css'
 
